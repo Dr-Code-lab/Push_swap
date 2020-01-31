@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 17:29:39 by ophuong           #+#    #+#             */
-/*   Updated: 2020/01/30 21:29:53 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/01/31 20:00:05 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@ void	sa()
 {
 	int	tmp;
 
-	if(!satck_a[0] || !stack_a[1])
+	if(!satck.a[0] || !stack.a[1])
 		exit;
 	tmp = stack_a[0];
-	stack_a[0] = stack_a[1];
-	stack_a[1] = tmp;
-	write (1, "sa\n", 3);
+	stack.a[0] = stack.a[1];
+	stack.a[1] = tmp;
 }

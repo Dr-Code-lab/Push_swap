@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 20:24:38 by ophuong           #+#    #+#             */
-/*   Updated: 2020/01/30 17:40:20 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/01/31 20:10:43 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,29 @@
 # define PS_H
 
 # include "../libft/libft.h"
-# include <unistd.h>
+# include <unistd.h>i
+# include <io.h>
 # include <stdio.h>
 
 typedef union
 {
-}							ps;
+	int		*a;
+	int		*b;
+	char	*c;
+	struct
+	{
+		char	*data;
+		move	*next;
+	}					move;
+}						stack;
 
 typedef struct
 {
-	int	max;
-	int	*stack_a;
-	int	*stack_b;
+	int		a_max;
+	int 	size_b;
+	int		size_a;
 
-}						t_var;
+}						var;
 
 void	sa();
 void	sb();

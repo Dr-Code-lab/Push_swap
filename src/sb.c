@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 17:29:39 by ophuong           #+#    #+#             */
-/*   Updated: 2020/01/30 21:30:36 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/01/31 20:00:51 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@ void	sb()
 {
 	int	tmp;
 
-	if(!satck_b[0] || !stack_b[1])
+	if(!satck.b[0] || !stack.b[1])
 		exit;
-	tmp = stack_b[0];
-	stack_b[0] = stack_b[1];
-	stack_b[1] = tmp;
-	write (1, "sb\n", 3);
+	tmp = stack.b[0];
+	stack.b[0] = stack.b[1];
+	stack.b[1] = tmp;
 }
