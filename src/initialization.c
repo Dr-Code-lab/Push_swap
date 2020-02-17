@@ -5,19 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/17 14:14:19 by ophuong           #+#    #+#             */
-/*   Updated: 2020/02/17 15:29:19 by ophuong          ###   ########.fr       */
+/*   Created: 2020/02/14 10:16:05 by ophuong           #+#    #+#             */
+/*   Updated: 2020/02/17 14:04:10 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/ps.h"
 
-int		main(int argc, char **argv)
+void	initialization(void)
 {
-	if (argc > 1)
-	{
-		initialization();
-		write(1, "OK\n", 3);
-		validation(argc, argv);
-	}
+	stk_a = NULL;
+	stk_b = NULL;
+	vari.val = 0;
+	vari.pos = 0;
 }

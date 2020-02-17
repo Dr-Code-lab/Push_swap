@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 20:24:38 by ophuong           #+#    #+#             */
-/*   Updated: 2020/01/31 20:10:43 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/02/17 15:39:57 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,26 @@
 # define PS_H
 
 # include "../libft/libft.h"
-# include <unistd.h>i
-# include <io.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <string.h>
+# include <fcntl.h>
 # include <stdio.h>
-
-typedef union
-{
-	int		*a;
-	int		*b;
-	char	*c;
-	struct
-	{
-		char	*data;
-		move	*next;
-	}					move;
-}						stack;
 
 typedef struct
 {
-	int		a_max;
-	int 	size_b;
-	int		size_a;
+	int				val;
+	int				pos;
+}					t_var;
 
-}						var;
+int				*stk_a;
+int				*stk_b;
+t_var			vari;
 
-void	sa();
+void	initialization(void);
+void	validation(int ac, char **av);
+
+/*void	sa();
 void	sb();
 void	ss();
 void	pa();
@@ -48,6 +43,6 @@ void	rb();
 void	rr();
 void	rra();
 void	rrb();
-void	rrr();
+void	rrr();*/
 
 #endif
