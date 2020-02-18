@@ -6,19 +6,19 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 17:29:39 by ophuong           #+#    #+#             */
-/*   Updated: 2020/01/31 20:00:05 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/02/18 17:21:40 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/ps.h"
+#include "../includes/ps.h"
 
-void	sa()
+void	sa(t_var *vari)
 {
 	int	tmp;
 
-	if(!satck.a[0] || !stack.a[1])
-		exit;
-	tmp = stack_a[0];
-	stack.a[0] = stack.a[1];
-	stack.a[1] = tmp;
+	if(!vari->stk_a)
+		return ;
+	tmp = vari->stk_a[0];
+	vari->stk_a[0] = vari->stk_a[1];
+	vari->stk_a[1] = tmp;
 }

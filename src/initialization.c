@@ -6,16 +6,16 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 10:16:05 by ophuong           #+#    #+#             */
-/*   Updated: 2020/02/17 14:04:10 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/02/18 17:25:15 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/ps.h"
+#include "../includes/ps.h"
 
-void	initialization(void)
+void	initialization(t_var *vari)
 {
-	stk_a = NULL;
-	stk_b = NULL;
-	vari.val = 0;
-	vari.pos = 0;
+	vari->base_n = 0;
+	vari->stk_a = NULL;
+	vari->stk_b = NULL;
+	vari->size = 0;
 }
