@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 20:24:38 by ophuong           #+#    #+#             */
-/*   Updated: 2020/02/18 20:01:17 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/02/19 12:54:45 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,18 @@
 
 typedef struct
 {
-	int				base_n;
-	int				*sorted;
-	int				*stk_a;
-	int				*stk_b;
-	int				size;
-}					t_var;
+	int				base_n;		/*basic element*/
+	int				*sorted;	/*sorted array of arguments*/
+	int				*stk_a;		/*satck for sorting*/
+	int				*stk_b;		/*temporary stack*/
+	int				size_a;		/*size of stack A*/
+	int				size_b;		/*size of stack B*/
+}					t_var;		/*name of type*/
 
 void	initialization(t_var *vari);
 void	validation(t_var *vari, int ac, char **av);
-void	easysort(t_var *vari);
+void	easysort(t_var *vari);										/*sort array of 3 elements*/
+void	init_sort(t_var *vari);										/*sort array of arguments for to get basic element*/
 
 void	sa(t_var *vari);
 //void	sb(t_var *vari);
