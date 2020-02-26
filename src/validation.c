@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:38:00 by ophuong           #+#    #+#             */
-/*   Updated: 2020/02/19 14:27:32 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/02/26 17:08:43 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,26 @@ void	validation(t_var *vari, int ac, char **av)
 		while (o < ac)
 		{
 			vari->stk_a[i] = ft_atoi(av[o]);
+			vari->sorted[i] = vari->stk_a[i];
 			i++;
 			o++;
 		}
 		vari->size_a = ac - 1;
 		/////////////////
 		i = 0;
+		write(1, "stk_a = ", 8);
 		while (i < ac - 1)
 		{
 			ft_putnbr(vari->stk_a[i]);
+			write(1, " ", 2);
+			i++;
+		}
+		write(1, "\n", 2);
+		i = 0;
+		write(1, "for quicksort = ", 16);
+		while (i < ac - 1)
+		{
+			ft_putnbr(vari->sorted[i]);
 			write(1, " ", 2);
 			i++;
 		}
