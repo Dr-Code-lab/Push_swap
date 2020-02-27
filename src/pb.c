@@ -1,39 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pb.c                                               :+:      :+:    :+:   */
+/*   pa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 15:20:12 by ophuong           #+#    #+#             */
-/*   Updated: 2020/01/31 17:23:12 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/02/27 14:08:51 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/ps.h"
+#include "../includes/ps.h"
 
 /*
-**	1. Move stack.b down by 1.
+**	1. Move stack_b down by 1.
 **	2. Push stack.a[0] to stack.b[0].
 **	3. Move stack.a up by 1.
 */
 
-void	pb()
+void	pb(t_var *vari)
 {
 	int	i;
 
-	i = var.size_b;
-	while(--i)
+	i = vari->size_b;
+	if (i != 0)
 	{
-		stack.b[i + 1] = stack.b[i];
+		while(i > 0)
+		{
+			vari->stk_b[i] = vari->stk_b[i - 1];
+			i--;
+		}
 	}
-	stack.b[0] = stack.a[0];
-	i = var.size_a;
-	while (--i)
+	vari->stk_b[0] = vari->stk_a[0];
+	while (i < vari->size_a)
 	{
-		stack.a[i - 1] = stack.a[i];
+		vari->stk_a[i] = vari->stk_a[i + 1];
+		i++;
 	}
-	var.size_b += 1;
-	var.size_a -= 1;
+	vari->size_a -= 1;
+	vari->size_b += 1;
 }
 	

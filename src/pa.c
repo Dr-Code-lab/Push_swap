@@ -6,11 +6,11 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 15:20:12 by ophuong           #+#    #+#             */
-/*   Updated: 2020/02/18 11:06:44 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/02/27 15:31:34 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/ps.h"
+#include "../includes/ps.h"
 
 /*
 **	1. Move stack_a down by 1.
@@ -18,21 +18,23 @@
 **	3. Move stack.b up by 1.
 */
 
-void	pa()
+void	pa(t_var *vari)
 {
 	int	i;
 
-	while(--i)
+	i = vari->size_a;
+	while(i != 0)
 	{
-		stack.a[i + 1] = stack.a[i];
+		vari->stk_a[i] = vari->stk_a[i - 1];
+		i--;
 	}
-	stack.a[0] = stack.b[0];
-	i = var.size_b;
-	while (--i)
+	vari->stk_a[0] = vari->stk_b[0];
+	while (i < vari->size_b)
 	{
-		stack.b[i - 1] = stack.b[i];
+		vari->stk_b[i] = vari->stk_b[i + 1];
+		i++;
 	}
-	var.size_b -= 1;
-	var.size_a += 1;
+	vari->size_b -= 1;
+	vari->size_a += 1;
 }
 	

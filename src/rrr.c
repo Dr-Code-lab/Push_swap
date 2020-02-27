@@ -6,14 +6,14 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 21:24:16 by ophuong           #+#    #+#             */
-/*   Updated: 2020/01/31 20:51:55 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/02/27 10:46:08 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/ps.h"
+#include "../includes/ps.h"
 
-void	rr()
+void	rr(t_var *vari)
 {
-	rra();
-	rrb();
+	rra(vari);
+	rrb(vari);
 }

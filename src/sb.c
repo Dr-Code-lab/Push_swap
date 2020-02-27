@@ -6,19 +6,13 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 17:29:39 by ophuong           #+#    #+#             */
-/*   Updated: 2020/01/31 20:00:51 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/02/27 10:20:11 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/ps.h"
+#include "../includes/ps.h"
 
-void	sb()
+void	sb(t_var *vari)
 {
-	int	tmp;
-
-	if(!satck.b[0] || !stack.b[1])
-		exit;
-	tmp = stack.b[0];
-	stack.b[0] = stack.b[1];
-	stack.b[1] = tmp;
+	ft_swap(&vari->stk_b[0], &vari->stk_b[1], sizeof(int));
 }

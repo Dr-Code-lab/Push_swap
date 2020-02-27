@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:38:00 by ophuong           #+#    #+#             */
-/*   Updated: 2020/02/26 17:08:43 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/02/27 14:05:41 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,24 @@ void	validation(t_var *vari, int ac, char **av)
 	{
 		i = 0;
 		o = 1;
-		if (!(vari->stk_a = (int*)malloc(sizeof(int) * (ac - 1))) ||
-				!(vari->stk_b = (int*)malloc(sizeof(int) * (ac - 1))) ||
-				!(vari->sorted = (int*)malloc(sizeof(int) * (ac - 1))))
+		vari->size_a = ac - 1;
+		vari->size_b = 0;
+		ft_putnbr(vari->size_a);
+		if (!(vari->stk_a = (int*)malloc(sizeof(int) * (vari->size_a))) ||
+				!(vari->stk_b = (int*)malloc(sizeof(int) * (vari->size_a))) ||
+				!(vari->sorted = (int*)malloc(sizeof(int) * (vari->size_a))))
 			return ;
+		ft_bzero(vari->stk_a, vari->size_a * sizeof(int)); 
+		ft_bzero(vari->stk_b, vari->size_a * sizeof(int)); 
+		ft_bzero(vari->sorted, vari->size_a * sizeof(int)); 
 		while (o < ac)
 		{
 			vari->stk_a[i] = ft_atoi(av[o]);
-			vari->sorted[i] = vari->stk_a[i];
+			if (ac > 4)
+				vari->sorted[i] = vari->stk_a[i];
 			i++;
 			o++;
 		}
-		vari->size_a = ac - 1;
 		/////////////////
 		i = 0;
 		write(1, "stk_a = ", 8);

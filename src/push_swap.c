@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:14:19 by ophuong           #+#    #+#             */
-/*   Updated: 2020/02/26 17:08:28 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/02/27 12:12:32 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,13 @@ int		main(int argc, char **argv)
 	{
 		initialization(vari);
 		validation(vari, argc, argv);
-		if (argc == 4)
+		if (argc < 8)
 			easysort(vari);
 		else
 		{
 			ft_qsort(vari->sorted, vari->size_a, sizeof(int), ft_compare);
 			vari->base_n = vari->sorted[vari->size_a / 2];
 		}
-		/////////////////
 		write(1, "base_n = ", 9);
 		ft_putnbr(vari->base_n);
 		ft_putchar('\n');

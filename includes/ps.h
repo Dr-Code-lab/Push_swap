@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 20:24:38 by ophuong           #+#    #+#             */
-/*   Updated: 2020/02/19 12:54:45 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/02/27 13:21:05 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,15 @@ void	easysort(t_var *vari);										/*sort array of 3 elements*/
 void	init_sort(t_var *vari);										/*sort array of arguments for to get basic element*/
 
 void	sa(t_var *vari);
-//void	sb(t_var *vari);
-//void	ss(t_var *vari);
-//void	pa(t_var *vari);
-//void	pb(t_var *vari);
-//void	ra(t_var *vari);
-//void	rb(t_var *vari);
-//void	rr(t_var *vari);
+void	sb(t_var *vari);
+void	ss(t_var *vari);
+void	pa(t_var *vari);
+void	pb(t_var *vari);
+void	ra(t_var *vari);
+void	rb(t_var *vari);
+void	rr(t_var *vari);
 void	rra(t_var *vari);
-//void	rrb(t_var *vari);
-//void	rrr(t_var *vari);
+void	rrb(t_var *vari);
+void	rrr(t_var *vari);
 
 #endif
