@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 16:00:18 by ophuong           #+#    #+#             */
-/*   Updated: 2020/02/27 15:34:15 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/03/02 10:15:19 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,64 @@
 
 static void		a_sort(t_var *vari)
 	{
-		if (vari->stk_a[0] > vari->stk_a[2] && vari->size_a == 3)
+		//////
+		printf("size_a= %d\na[0]= %d\na[1]= %d\na[2]= %d\n", vari->size_a, vari->stk_a[0], vari->stk_a[1], vari->stk_a[2]);
+		//////
+		if (vari->size_a == 3)
 		{
-			ra(vari);
-			ft_putstr("ra\n");
+			if (vari->stk_a[0] > vari->stk_a[1] ||
+					(vari->stk_a[0] < vari->stk_a[1] && vari->stk_a[1] > vari->stk_a[2]))
+			{
+				sa(vari);
+				ft_putstr("sa\n");
+			}
+			if (vari->stk_a[0] > vari->stk_a[2])
+			{
+				ra(vari);
+				ft_putstr("ra\n");
+			}
 		}
-		if (vari->stk_a[0] > vari->stk_a[1])
-		{
-			sa(vari);
-			ft_putstr("sa\n");
-		}
+		else
+			if (vari->stk_a[0] > vari->stk_a[1])
+			{
+				sa(vari);
+				ft_putstr("sa\n");
+			}
+		//////
+		ft_putstr("\nOK_a\n");
+		//////
 	}
+
 static void		b_sort(t_var *vari)
 	{
-		if (vari->stk_b[0] < vari->stk_b[2] && vari->size_a == 3)
+		//////
+		printf("size_b= %d\nb[0]= %d\nb[1]= %d\nb[2]= %d\n", vari->size_b, vari->stk_b[0], vari->stk_b[1], vari->stk_b[2]);
+		//////
+		if (vari->size_b == 3)
 		{
-			rb(vari);
-			ft_putstr("rb\n");
+			
+			if (vari->stk_b[2] > vari->stk_b[0] && vari->stk_b[0] > vari->stk_b[1])
+			{
+				rrb(vari);
+				ft_putstr("rrb\n");
+			}
+			else if(vari->stk_b[0] < vari->stk_b[2])
+			{
+				rb(vari);
+				ft_putstr("rb\n");
+			}
 		}
 		if (vari->stk_b[0] < vari->stk_b[1])
 		{
 			sb(vari);
 			ft_putstr("sb\n");
 		}
+		//////
+		ft_putstr("\nOK_b\n");
+		//////
 	}
 
-static void		cut_stk(t_var *vari)
+static void		cut_sort(t_var *vari)
 {
 	int	c;
 	int	s_a;
@@ -72,11 +104,11 @@ void			easysort(t_var	*vari)
 	int	s_b;
 
 	c = 0;
-	if (vari->size_a == 1)
+	if (vari->size_a <= 1)
 		return ;
 	if (vari->size_a > 3)
 	{
-		cut_stk(vari);
+		cut_sort(vari);
 		s_b = vari->size_b;
 		while (c < s_b)
 		{
@@ -87,21 +119,4 @@ void			easysort(t_var	*vari)
 	}
 	else
 		a_sort(vari);
-	/////////////
-	int	i = 0;
-	while (i < vari->size_a)
-	{
-		ft_putnbr(vari->stk_a[i]);
-		write(1, "\n", 1);
-		i++;
-	}
-/*	i = 0;
-	while (i < vari->size_b)
-	{
-		ft_putnbr(vari->stk_b[i]);
-		write(1, "\n", 1);
-		i++;
-	}
-*/	/////////////
-	
 }

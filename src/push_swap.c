@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:14:19 by ophuong           #+#    #+#             */
-/*   Updated: 2020/02/27 12:12:32 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/03/02 11:29:19 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,42 @@ int		main(int argc, char **argv)
 		{
 			ft_qsort(vari->sorted, vari->size_a, sizeof(int), ft_compare);
 			vari->base_n = vari->sorted[vari->size_a / 2];
+			move(vari);
 		}
-		write(1, "base_n = ", 9);
+
+		////////////////////////////////////////////////////////////////
+		ft_putstr("\nbase_n = ");
 		ft_putnbr(vari->base_n);
 		ft_putchar('\n');
 		int i = 0;
+		ft_putstr("sorted: ");
 		while (i < argc - 1)
 		{
-			write(1, "\nsorted = ", 10);
 			ft_putnbr(vari->sorted[i]);
 			write(1, " ", 2);
 			i++;
 		}
 		write(1, "\n", 2);
-		/////////////////
+		i = 0;
+		ft_putstr("A:\n");
+		while (i < vari->size_a)
+		{
+			ft_putnbr(vari->stk_a[i]);
+			write(1, "\n", 1);
+			i++;
+		}
+		i = 0;
+		ft_putstr("B:\n");
+		while (i < vari->size_b)
+		{
+			ft_putnbr(vari->stk_b[i]);
+			write(1, "\n", 1);
+			i++;
+		}
+		////////////////////////////////////////////////////////////////
 	}
-	//////////////////
+	////////////////////////////////////////////////////////////////////
 	write(1, "FIN\n", 4);
-	/////////////////
+	////////////////////////////////////////////////////////////////////
 	return (0);
 }

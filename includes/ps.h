@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 20:24:38 by ophuong           #+#    #+#             */
-/*   Updated: 2020/02/27 13:21:05 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/02/28 14:39:08 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ typedef struct
 
 void	initialization(t_var *vari);
 void	validation(t_var *vari, int ac, char **av);
-void	easysort(t_var *vari);										/*sort array of 3 elements*/
-void	init_sort(t_var *vari);										/*sort array of arguments for to get basic element*/
+void	easysort(t_var *vari);										/*sort array of 2 - 6 elements*/
+void	move(t_var *vari);		
 
 void	sa(t_var *vari);
 void	sb(t_var *vari);
