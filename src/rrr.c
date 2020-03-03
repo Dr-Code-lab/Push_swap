@@ -12,7 +12,7 @@
 
 #include "../includes/ps.h"
 
-void	rr(t_var *vari)
+void	rrr(t_var *vari)
 {
 	rra(vari);
 	rrb(vari);

@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 12:53:46 by ophuong           #+#    #+#             */
-/*   Updated: 2020/02/28 15:24:24 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/03/02 13:25:35 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	move(t_var	*vari)
 
 	c = vari->size_a;
 	i = 0;
-	if (c < 2 || !(vari->stk_a))
+	if (c < 22 || !(vari->stk_a))
 		return ;
 	while (i <= c)
 	{
@@ -91,4 +91,5 @@ void	move(t_var	*vari)
 		}
 		i++;
 	}
+	move(vari);
 }

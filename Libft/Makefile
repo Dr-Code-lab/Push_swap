@@ -32,7 +32,7 @@ SRC = ft_memset.c ft_bzero.c ft_memcpy.c \
 	  ft_putendl_fd.c ft_putnbr_fd.c ft_lstnew.c ft_lstdelone.c\
 	  ft_lstdel.c ft_lstadd.c ft_lstiter.c ft_lstmap.c\
 	  ft_islower.c ft_isupper.c ft_isspace.c ft_swap.c\
-	  ft_compare.c ft_qsort.c
+	  ft_compare.c ft_qsort.c get_next_line.c
 	  	
 
 OBJ = $(subst .c,.o,$(SRC))

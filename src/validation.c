@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:38:00 by ophuong           #+#    #+#             */
-/*   Updated: 2020/02/27 14:05:41 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/03/03 17:43:02 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ void	validation(t_var *vari, int ac, char **av)
 		while (i < ac - 1)
 		{
 			ft_putnbr(vari->sorted[i]);
-			write(1, " ", 2);
+			write(1, " ", 1);
 			i++;
 		}
-		write(1, "\n", 2);
+		write(1, "\n", 1);
 		/////////////////
 	}
 }

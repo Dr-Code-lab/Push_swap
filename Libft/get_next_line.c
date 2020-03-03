@@ -6,12 +6,12 @@
 /*   By: ophuong <ophuong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/02 17:37:50 by ophuong           #+#    #+#             */
-/*   Updated: 2019/10/04 22:02:47 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/03/03 18:26:14 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "./get_next_line.h"
+#include "libft.h"
 
 static t_list	*f_lstnew(size_t fd)
 {

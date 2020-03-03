@@ -6,13 +6,14 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 18:49:32 by ophuong           #+#    #+#             */
-/*   Updated: 2020/02/26 10:47:39 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/03/03 14:03:21 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+#define BUFF_SIZE 9999
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -24,6 +25,7 @@ typedef	struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+int					get_next_line(const int fd, char **line);
 void				ft_qsort(void *base, size_t nel, size_t width,
 		int (*compar)(const void *, const void *));
 int					ft_compare(const void *a, const void *b);
