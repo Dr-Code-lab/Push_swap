@@ -6,7 +6,7 @@
 /*   By: ophuong <ophuong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/02 17:37:50 by ophuong           #+#    #+#             */
-/*   Updated: 2020/03/03 18:26:14 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/03/14 15:07:09 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,16 @@ static t_list	*f_list(const int fd, t_list **head)
 	if (!(*head))
 	{
 		buf_long = f_lstnew((size_t)fd);
+		buf_long->content = ft_strnew(0);
 		*head = buf_long;
 	}
 	while (buf_long->content_size != (size_t)fd)
 	{
 		if (buf_long->next == NULL)
 		{
-			ft_lstadd(&*head, f_lstnew(fd));
-			buf_long = *head;
+			buf_long = f_lstnew(fd);
+			buf_long->content = ft_strnew(0);
+			ft_lstadd(&*head, buf_long);
 			break ;
 		}
 		buf_long = buf_long->next;

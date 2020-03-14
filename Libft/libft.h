@@ -6,14 +6,14 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 18:49:32 by ophuong           #+#    #+#             */
-/*   Updated: 2020/03/03 14:03:21 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/03/14 15:05:56 by ophuong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#define BUFF_SIZE 9999
+# define BUFF_SIZE 9999
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>

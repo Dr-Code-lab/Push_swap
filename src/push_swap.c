@@ -18,7 +18,7 @@ int		main(int argc, char **argv)
 	t_var	*vari;
 
 	vari = &v;
-	if (argc > 1)
+	if (argc > 1 && check_args(argc, argv) == 1)
 	{
 		initialization(vari);
 		validation(vari, argc, argv);
@@ -62,6 +62,8 @@ int		main(int argc, char **argv)
 		}
 		////////////////////////////////////////////////////////////////
 	}
+	else
+	    ft_putstr("Error\n");
 	////////////////////////////////////////////////////////////////////
 	write(1, "FIN\n", 4);
 	////////////////////////////////////////////////////////////////////

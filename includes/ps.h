@@ -30,6 +30,7 @@ typedef struct
 	int				size_b;		/*size of stack B*/
 }					t_var;		/*name of type*/
 
+int    check_args(int ac, char **av);
 void	initialization(t_var *vari);
 void	validation(t_var *vari, int ac, char **av);
 void	easysort(t_var *vari);										/*sort array of 2 - 6 elements*/
