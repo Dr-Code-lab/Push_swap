@@ -1,5 +1,9 @@
 .DS_Store
 */a.out
+*.swp
 */*.swp
 */libft.a
 */*.o
+.idea
+CMakeLists.txt
+cmake-build-debug

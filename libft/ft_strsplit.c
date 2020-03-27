@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/15 12:51:43 by ophuong           #+#    #+#             */
-/*   Updated: 2019/09/17 11:48:20 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/03/27 11:53:58 by ophuong          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,10 +93,8 @@ char			**ft_strsplit(char const *s, char c)
 {
 	char	**fresh;
 	size_t	id;
-	size_t	od;
 
 	id = 0;
-	od = 0;
 	fresh = 0;
 	if (s == NULL)
 		return (NULL);
