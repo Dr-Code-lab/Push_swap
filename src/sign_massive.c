@@ -12,7 +12,6 @@
 
 #include "../includes/ps.h"
 
-///////////////////////////////////////////////////////////////////////
 void	sign_massive(t_var *vari)
 {
 	int	i;
@@ -26,23 +25,3 @@ void	sign_massive(t_var *vari)
 		i++;  
 	}
 }
-/*
-void	sign_massive(int *p, int size, t_num **elem)
-{
-	int	i;
-
-	if (size > 0)
-	{
-		if (!(*elem = malloc(sizeof(t_num) * size)))
-			return;
-	}
-	i = 0;
-	while(i < size)
-	{
-		(*elem)[i].n = a[i];
-		(*elem)[i].up = i;
-		(*elem)[i].down = size - i;
-		i++;  
-	}
-}*/
-///////////////////////////////////////////////////////////////////////
