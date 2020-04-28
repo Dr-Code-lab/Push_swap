@@ -15,10 +15,17 @@
 static void		a_sort(t_var *vari)
 	{
 		//////
-		printf("size_a= %d\na[0]= %d\na[1]= %d\na[2]= %d\n", vari->size_a, vari->stk_a[0], vari->stk_a[1], vari->stk_a[2]);
+		printf("size_a= %d\na[0]= %d\na[1]= %d\na[2]= %d\n",
+				vari->size_a, vari->stk_a[0], vari->stk_a[1], vari->stk_a[2]);
 		//////
 		if (vari->size_a == 3)
 		{
+			
+			if (vari->stk_a[0] > vari->stk_a[2])
+			{
+				rra(vari);
+				ft_putstr("rra\n");
+			}
 			if (vari->stk_a[0] > vari->stk_a[1] ||
 					(vari->stk_a[0] < vari->stk_a[1] && vari->stk_a[1] > vari->stk_a[2]))
 			{
@@ -45,7 +52,8 @@ static void		a_sort(t_var *vari)
 static void		b_sort(t_var *vari)
 	{
 		//////
-		printf("size_b= %d\nb[0]= %d\nb[1]= %d\nb[2]= %d\n", vari->size_b, vari->stk_b[0], vari->stk_b[1], vari->stk_b[2]);
+		printf("size_b= %d\nb[0]= %d\nb[1]= %d\nb[2]= %d\n",
+				vari->size_b, vari->stk_b[0], vari->stk_b[1], vari->stk_b[2]);
 		//////
 		if (vari->size_b == 3)
 		{
