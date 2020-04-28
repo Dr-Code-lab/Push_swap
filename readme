@@ -1,0 +1,71 @@
+
+Documentation for my push_swap project.
+
+Test compiletion command:
+	gcc -Wall -Wextra -Werror sa.c sb.c ss.c pa.c pb.c ra.c rb.c rr.c rra.c rrb.c rrr.c push_swap.c check_args.c initialization.c validation.c easysort.c valid_sign.c sign_massive.c ../includes/ps.h ../libft.a
+
+
+ps.h
+	Included header file;
+	Contains structures and protipes of all functions;
+
+
+push_swap.c
+	Get agruments from command prompt.
+	If quantity of ARGS > 1, then
+		Call function check_args() 
+		and waiting '1' back. (If it's KO, print "Error");
+	Call function initialisation();
+	Call function validation();
+	If quantity of ARGS < 8, then
+		Call function easysort() and finish;
+	Else
+		Call function ft_qsort for sorting <vari->sorted[]>;
+		Validate of <vari->base_n> (mediana);
+		Call function valid_sing() for make signed massive if INTs;
+
+
+initialization.c
+	Initialize all variables with '0' or NULL;
+
+
+validation.c
+	Allocate memory for 3 massives of INTs
+	and check it. (if it's KO, finish);
+	Write allocated memory with '0';
+	Call function ft_atoi() to write ARGS in <vari->stk_a>,
+	and if ARGS > 4 to duplicate it in <vari->sorted>;
+
+
+easysort.c
+	If size of STK_A > 3, then
+		Call function cut_sort():
+			Call function ft_qsort for sorting <vari->sorted[]>;
+			Validate of <vari->base_n> (mediana);
+			Movein STK_B all numbers less then <vari->base_n>
+			Call function a_sort():
+				If size of STK_A == 3, then
+					Sort 3 elements in STK_A with functions rra(), sa(), ra();
+				Else
+					Sort 2 elements with function sa();
+			Call function b_sort():
+				If size of STK_B == 3, then
+					Sort 3 elements in STK_B with functions rrb(), sb(), rb();
+				Else
+					Sort 2 elements with function sb();
+	Else
+		Call function a_sort(); (look description upper)
+		
+
+
+valid_sign.c
+	Allocate memory for 2 massives of structures with signrd elements
+	and check if it's OK;
+	Write allocated memory with '0';
+	Call function sign_massive();
+
+
+sing_massive.c
+	Copy INTs from STK_A to structure;
+	Sign how much moves to the top throw up;
+	Sign how much moves to the top throw down;

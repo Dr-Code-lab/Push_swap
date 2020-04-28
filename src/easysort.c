@@ -39,7 +39,6 @@ static void		a_sort(t_var *vari)
 			}
 		}
 		else
-			if (vari->stk_a[0] > vari->stk_a[1])
 			{
 				sa(vari);
 				ft_putstr("sa\n");
