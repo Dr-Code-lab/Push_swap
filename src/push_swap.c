@@ -28,7 +28,7 @@ int		main(int argc, char **argv)
 		{
 			ft_qsort(vari->sorted, vari->size_a, sizeof(int), ft_compare);
 			vari->base_n = vari->sorted[vari->size_a / 2];
-			move(vari);
+			valid_sign(vari);
 		}
 
 		////////////////////////////////////////////////////////////////

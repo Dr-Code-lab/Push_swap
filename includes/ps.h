@@ -20,6 +20,13 @@
 # include <fcntl.h>
 # include <stdio.h>
 
+typedef struct number
+{
+	int	n;
+	int	up;
+	int	down;
+}		t_num;
+
 typedef struct
 {
 	int				base_n;		/*basic element*/
@@ -28,14 +35,16 @@ typedef struct
 	int				*stk_b;		/*temporary stack*/
 	int				size_a;		/*size of stack A*/
 	int				size_b;		/*size of stack B*/
+	t_num				*sis_a;		/*signed stack A*/
+	t_num				*sis_b;		/*signed stack B*/  
 }					t_var;		/*name of type*/
 
-int    check_args(int ac, char **av);
+void	valid_sign(t_var *vari);
+void	sign_massive(t_var *vari);
+int	check_args(int ac, char **av);
 void	initialization(t_var *vari);
 void	validation(t_var *vari, int ac, char **av);
-void	easysort(t_var *vari);										/*sort array of 2 - 6 elements*/
-void	move(t_var *vari);		
-
+void	easysort(t_var *vari);				/*sort array of 2 - 6 elements*/
 void	sa(t_var *vari);
 void	sb(t_var *vari);
 void	ss(t_var *vari);

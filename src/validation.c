@@ -23,7 +23,10 @@ void	validation(t_var *vari, int ac, char **av)
 		o = 1;
 		vari->size_a = ac - 1;
 		vari->size_b = 0;
+		///////
 		ft_putnbr(vari->size_a);
+		ft_putchar('\n');
+		/////////
 		if (!(vari->stk_a = (int*)malloc(sizeof(int) * (vari->size_a))) ||
 				!(vari->stk_b = (int*)malloc(sizeof(int) * (vari->size_a))) ||
 				!(vari->sorted = (int*)malloc(sizeof(int) * (vari->size_a))))

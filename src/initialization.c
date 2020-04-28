@@ -20,4 +20,6 @@ void	initialization(t_var *vari)
 	vari->stk_b = NULL;
 	vari->size_a = 0;
 	vari->size_b = 0;
+	vari->sis_a = NULL;
+	vari->sis_b = NULL;
 }

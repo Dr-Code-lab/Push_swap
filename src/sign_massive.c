@@ -1,15 +1,33 @@
-#include <unistd.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/17 14:14:19 by ophuong           #+#    #+#             */
+/*   Updated: 2020/03/02 13:25:05 by ophuong          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-typedef struct number
-{
-	int	n;
-	int	up;
-	int	down;
-}		t_num;
+#include "../includes/ps.h"
 
 ///////////////////////////////////////////////////////////////////////
-void	set_sign(int *a, int size, t_num **elem)
+void	sign_massive(t_var *vari)
+{
+	int	i;
+
+	i = 0;
+	while(i < vari->size_a)
+	{
+		vari->sis_a[i].n = vari->stk_a[i];
+		vari->sis_a[i].up = i;
+		vari->sis_a[i].down = vari->size_a - i;
+		i++;  
+	}
+}
+/*
+void	sign_massive(int *p, int size, t_num **elem)
 {
 	int	i;
 
@@ -26,5 +44,5 @@ void	set_sign(int *a, int size, t_num **elem)
 		(*elem)[i].down = size - i;
 		i++;  
 	}
-}
+}*/
 ///////////////////////////////////////////////////////////////////////

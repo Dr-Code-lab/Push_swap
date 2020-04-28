@@ -1,5 +1,9 @@
 .DS_Store
 */a.out
+*.gch
+*/*.gch
+*.swo
+*/*.swo
 *.swp
 */*.swp
 */libft.a
