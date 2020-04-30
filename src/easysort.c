@@ -21,28 +21,30 @@ static void		a_sort(t_var *vari)
 		if (vari->size_a == 3)
 		{
 			
+			if ((vari->stk_a[2] < vari->stk_a[0] && vari->stk_a[2] < vari->stk_a[1] && vari->stk_a[0] < vari->stk_a[1]) || (vari->stk_a[2] < vari->stk_a[0] && vari->stk_a[2] > vari->stk_a[1]) || (vari->stk_a[2] > vari->stk_a[0] && vari->stk_a[2] < vari->stk_a[1]))
+			{
+				rra(vari);
+				ft_putstr("rra\n");
+			}
+			if (vari->stk_a[0] > vari->stk_a[1])
+			{
+				sa(vari);
+				ft_putstr("sa\n");
+			}
 			if (vari->stk_a[0] > vari->stk_a[2])
 			{
 				rra(vari);
 				ft_putstr("rra\n");
 			}
-			if (vari->stk_a[0] > vari->stk_a[1] ||
-					(vari->stk_a[0] < vari->stk_a[1] && vari->stk_a[1] > vari->stk_a[2]))
+		}
+		else 
+		{
+			if (vari->stk_a[0] > vari->stk_a[1] && vari->size_a == 2)
 			{
 				sa(vari);
 				ft_putstr("sa\n");
-			}
-			if (vari->stk_a[0] > vari->stk_a[2])
-			{
-				ra(vari);
-				ft_putstr("ra\n");
 			}
 		}
-		else
-			{
-				sa(vari);
-				ft_putstr("sa\n");
-			}
 		//////
 		ft_putstr("\nOK_a\n");
 		//////
@@ -57,18 +59,23 @@ static void		b_sort(t_var *vari)
 		if (vari->size_b == 3)
 		{
 			
-			if (vari->stk_b[2] > vari->stk_b[0] && vari->stk_b[0] > vari->stk_b[1])
+			if ((vari->stk_b[2] > vari->stk_b[1] && vari->stk_b[2] > vari->stk_b[0] && vari->stk_b[1] < vari->stk_b[0]) || (vari->stk_b[0] < vari->stk_b[1] && vari->stk_b[1] > vari->stk_b[2]))
 			{
 				rrb(vari);
 				ft_putstr("rrb\n");
 			}
-			else if(vari->stk_b[0] < vari->stk_b[2])
+			if(vari->stk_b[0] < vari->stk_b[1])
 			{
-				rb(vari);
-				ft_putstr("rb\n");
+				sb(vari);
+				ft_putstr("sb\n");
+			}
+			if(vari->stk_b[2] > vari->stk_b[0])
+			{
+				rrb(vari);
+				ft_putstr("rrb\n");
 			}
 		}
-		if (vari->stk_b[0] < vari->stk_b[1])
+		if (vari->stk_b[0] < vari->stk_b[1] && vari->size_b == 2)
 		{
 			sb(vari);
 			ft_putstr("sb\n");
