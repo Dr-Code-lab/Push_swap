@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 20:24:38 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/07 00:57:12 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/07 01:20:10 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ typedef struct
 	int				size_a;		/*size of stack A*/
 	int				size_b;		/*size of stack B*/
 	t_num				*sis_a;		/*signed stack A*/
-	t_num				*sis_b;		/*signed stack B*/  
 }					t_var;		/*name of type*/
 
 void	a_sort(t_var *vari);

@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:38:00 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/06 22:45:27 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/07 01:21:09 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@ void	valid_sign(t_var *vari)
 {
 	if (vari)
 	{
-		if (!(vari->sis_a = malloc(sizeof(t_num) * (vari->size_a))) ||
-				!(vari->sis_b = malloc(sizeof(t_num) * (vari->size_a))))
+		if (!(vari->sis_a = malloc(sizeof(t_num) * (vari->size_a))))
 			return ;
 		ft_bzero(vari->sis_a, vari->size_a * sizeof(t_num)); 
-		ft_bzero(vari->sis_b, vari->size_a * sizeof(t_num));
 		sign_massive(vari);
 		/////////////////
 		int	i;
