@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 16:00:18 by ophuong           #+#    #+#             */
-/*   Updated: 2020/03/02 10:15:19 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/05/06 11:07:08 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,30 +21,28 @@ static void		a_sort(t_var *vari)
 		if (vari->size_a == 3)
 		{
 			
-			if ((vari->stk_a[2] < vari->stk_a[0] && vari->stk_a[2] < vari->stk_a[1] && vari->stk_a[0] < vari->stk_a[1]) || (vari->stk_a[2] < vari->stk_a[0] && vari->stk_a[2] > vari->stk_a[1]) || (vari->stk_a[2] > vari->stk_a[0] && vari->stk_a[2] < vari->stk_a[1]))
+			if (vari->stk_a[0] > vari->stk_a[2])
 			{
 				rra(vari);
 				ft_putstr("rra\n");
 			}
-			if (vari->stk_a[0] > vari->stk_a[1])
+			if (vari->stk_a[0] > vari->stk_a[1] ||
+					(vari->stk_a[0] < vari->stk_a[1] && vari->stk_a[1] > vari->stk_a[2]))
 			{
 				sa(vari);
 				ft_putstr("sa\n");
 			}
 			if (vari->stk_a[0] > vari->stk_a[2])
 			{
-				rra(vari);
-				ft_putstr("rra\n");
+				ra(vari);
+				ft_putstr("ra\n");
 			}
 		}
-		else 
-		{
-			if (vari->stk_a[0] > vari->stk_a[1] && vari->size_a == 2)
+		else
 			{
 				sa(vari);
 				ft_putstr("sa\n");
 			}
-		}
 		//////
 		ft_putstr("\nOK_a\n");
 		//////
@@ -59,23 +57,18 @@ static void		b_sort(t_var *vari)
 		if (vari->size_b == 3)
 		{
 			
-			if ((vari->stk_b[2] > vari->stk_b[1] && vari->stk_b[2] > vari->stk_b[0] && vari->stk_b[1] < vari->stk_b[0]) || (vari->stk_b[0] < vari->stk_b[1] && vari->stk_b[1] > vari->stk_b[2]))
+			if(vari->stk_b[0] > vari->stk_b[2] && vari->stk_b[0]  > vari->stk_b[1])
 			{
-				rrb(vari);
-				ft_putstr("rrb\n");
+				pa(vari);
+				ft_putstr("pa\n");
 			}
-			if(vari->stk_b[0] < vari->stk_b[1])
-			{
-				sb(vari);
-				ft_putstr("sb\n");
-			}
-			if(vari->stk_b[2] > vari->stk_b[0])
+			if (vari->stk_b[2] > vari->stk_b[0] && vari->stk_b[0] > vari->stk_b[1])
 			{
 				rrb(vari);
 				ft_putstr("rrb\n");
 			}
 		}
-		if (vari->stk_b[0] < vari->stk_b[1] && vari->size_b == 2)
+		if (vari->stk_b[0] < vari->stk_b[1])
 		{
 			sb(vari);
 			ft_putstr("sb\n");

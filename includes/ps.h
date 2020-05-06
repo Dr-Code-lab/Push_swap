@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 20:24:38 by ophuong           #+#    #+#             */
-/*   Updated: 2020/03/03 16:03:33 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/04/29 23:58:08 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct
 
 void	valid_sign(t_var *vari);
 void	sign_massive(t_var *vari);
-int	check_args(int ac, char **av);
+int		check_args(int ac, char **av);
 void	initialization(t_var *vari);
 void	validation(t_var *vari, int ac, char **av);
 void	easysort(t_var *vari);				/*sort array of 2 - 6 elements*/
