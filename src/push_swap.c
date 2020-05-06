@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:14:19 by ophuong           #+#    #+#             */
-/*   Updated: 2020/03/02 13:25:05 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/05/06 23:49:44 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int		main(int argc, char **argv)
 			ft_qsort(vari->sorted, vari->size_a, sizeof(int), ft_compare);
 			vari->base_n = vari->sorted[vari->size_a / 2];
 			valid_sign(vari);
+			cut_a(vari);
 		}
 
 		////////////////////////////////////////////////////////////////

@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 20:24:38 by ophuong           #+#    #+#             */
-/*   Updated: 2020/04/29 23:58:08 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/06 23:50:44 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct number
 	int	n;
 	int	up;
 	int	down;
+	int	pos;
 }		t_num;
 
 typedef struct
@@ -39,6 +40,7 @@ typedef struct
 	t_num				*sis_b;		/*signed stack B*/  
 }					t_var;		/*name of type*/
 
+void	cut_a(t_var *vari);
 void	valid_sign(t_var *vari);
 void	sign_massive(t_var *vari);
 int		check_args(int ac, char **av);

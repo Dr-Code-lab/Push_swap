@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:38:00 by ophuong           #+#    #+#             */
-/*   Updated: 2020/03/03 17:43:02 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/05/06 22:45:27 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ void	valid_sign(t_var *vari)
 			ft_putchar('	');
 			write(1, "a.d:", 4);
 			ft_putnbr(vari->sis_a[i].down);
+			ft_putchar('	');
+			write(1, "a.p:", 4);
+			ft_putnbr(vari->sis_a[i].pos);
 			ft_putchar('\n');
 			i++;
 		}

@@ -69,3 +69,4 @@ sing_massive.c
 	Copy INTs from STK_A to structure;
 	Sign how much moves to the top throw up;
 	Sign how much moves to the top throw down;
+	Sign true possition in sorted stack.

@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 16:00:18 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/06 11:07:08 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/07 00:12:14 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,16 +56,20 @@ static void		b_sort(t_var *vari)
 		//////
 		if (vari->size_b == 3)
 		{
-			
+			if (vari->stk_b[2] > vari->stk_b[0] && vari->stk_b[0] < vari->stk_b[1])
+			{
+				rrb(vari);
+				ft_putstr("rrb\n");
+			}
+			if (vari->stk_b[2] > vari->stk_b[0] && vari->stk_b[2] > vari->stk_b[1])
+			{
+				rrb(vari);
+				ft_putstr("rrb\n");
+			}
 			if(vari->stk_b[0] > vari->stk_b[2] && vari->stk_b[0]  > vari->stk_b[1])
 			{
 				pa(vari);
 				ft_putstr("pa\n");
-			}
-			if (vari->stk_b[2] > vari->stk_b[0] && vari->stk_b[0] > vari->stk_b[1])
-			{
-				rrb(vari);
-				ft_putstr("rrb\n");
 			}
 		}
 		if (vari->stk_b[0] < vari->stk_b[1])
@@ -80,27 +84,9 @@ static void		b_sort(t_var *vari)
 
 static void		cut_sort(t_var *vari)
 {
-	int	c;
-	int	s_a;
-
-	c = 0;
-	s_a = vari->size_a;
 	ft_qsort(vari->sorted, vari->size_a, sizeof(int), ft_compare);
 	vari->base_n = vari->sorted[vari->size_a / 2];
-	while (c < s_a)
-	{
-		if (vari->stk_a[0] < vari->base_n)
-		{
-			pb(vari);
-			ft_putstr("pb\n");
-		}
-		else
-		{
-			ra(vari);
-			ft_putstr("ra\n");
-		}
-		c++;
-	}
+	cut_a(vari);
 	a_sort(vari);
 	b_sort(vari);
 }
@@ -110,11 +96,11 @@ void			easysort(t_var	*vari)
 	int	c;
 	int	s_b;
 
-	c = 0;
 	if (vari->size_a <= 1)
 		return ;
 	if (vari->size_a > 3)
 	{
+		c = 0;
 		cut_sort(vari);
 		s_b = vari->size_b;
 		while (c < s_b)
