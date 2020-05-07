@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:14:19 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/07 01:02:26 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/07 13:48:08 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	cut_a(t_var *vari)
 		//////////////////
 		while (c < s_a)
 		{
-			if (vari->stk_a[0] < vari->base_n)
+			if (vari->stk_a[0] <= vari->base_n)
 			{
 				pb(vari);
 				ft_putstr("pb\n");

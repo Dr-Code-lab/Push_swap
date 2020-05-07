@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 20:24:38 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/07 01:20:10 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/07 15:29:19 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ typedef struct
 	t_num				*sis_a;		/*signed stack A*/
 }					t_var;		/*name of type*/
 
+void	put_on_place(t_var *vari);
+void	valid_pos(t_var *vari);
 void	a_sort(t_var *vari);
 void	b_sort(t_var *vari);
 void	cut_a(t_var *vari);

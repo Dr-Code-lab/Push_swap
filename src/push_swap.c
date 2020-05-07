@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:14:19 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/06 23:49:44 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/07 15:32:31 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,14 @@ int		main(int argc, char **argv)
 		else
 		{
 			ft_qsort(vari->sorted, vari->size_a, sizeof(int), ft_compare);
-			vari->base_n = vari->sorted[vari->size_a / 2];
+			vari->base_n = vari->sorted[vari->size_a / 3];
 			valid_sign(vari);
 			cut_a(vari);
+			while (vari->size_b > 0)
+			{
+				valid_pos(vari);
+				put_on_place(vari);
+			}
 		}
 
 		////////////////////////////////////////////////////////////////
