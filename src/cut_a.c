@@ -1,18 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_b.c                                           :+:      :+:    :+:   */
+/*   cut_a.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:14:19 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/07 13:48:08 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/08 16:06:13 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
-void	cut_a(t_var *vari)
+static void	get_base_n(t_var *vari)
+{
+	int	*sorted;
+	int	i;
+
+	i = 0;
+	sorted = ft_memalloc(sizeof(int) * vari->size_a);
+	ft_memcpy(sorted, vari->stk_a, sizeof(int) * vari->size_a);
+	ft_qsort(vari->sorted, vari->size_a, sizeof(int), ft_compare);
+	vari->base_n = vari->stk_a[vari->size_a / 2];
+	//////////////
+	ft_putchar('\n');
+	ft_putstr("BASE_N IS OK!!!");
+	ft_putchar('\n');
+	//////////////
+}
+
+void		cut_a(t_var *vari)
 {
 	int	c;
 	int	s_a;
@@ -22,8 +39,9 @@ void	cut_a(t_var *vari)
 		c = 0;
 		s_a = vari->size_a;
 		//////////////////
+		ft_putstr("BASE_N = ");
 		ft_putnbr(vari->base_n);
-		ft_putchar('	');
+		ft_putchar('\n');
 		//////////////////
 		while (c < s_a)
 		{
@@ -43,7 +61,7 @@ void	cut_a(t_var *vari)
 		ft_putnbr(vari->size_a);
 		ft_putchar('	');
 		//////////////////
-		vari->base_n = vari->stk_a[vari->size_a / 2];
+		get_base_n(vari);
 	}
 	a_sort(vari);
 }
