@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 20:24:38 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/07 15:29:19 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/11 21:58:53 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ typedef struct
 	t_num				*sis_a;		/*signed stack A*/
 }					t_var;		/*name of type*/
 
+int		check_str(char *arg);
+void	valid_args(t_var *vari, char *arg);
 void	put_on_place(t_var *vari);
 void	valid_pos(t_var *vari);
 void	a_sort(t_var *vari);
@@ -46,7 +48,7 @@ void	b_sort(t_var *vari);
 void	cut_a(t_var *vari);
 void	valid_sign(t_var *vari);
 void	sign_massive(t_var *vari);
-int		check_args(int ac, char **av);
+int		check_args(t_var *vari);
 void	initialization(t_var *vari);
 void	validation(t_var *vari, int ac, char **av);
 void	easysort(t_var *vari);				/*sort array of 2 - 6 elements*/

@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:14:19 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/07 15:32:31 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/11 22:00:15 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,29 @@ int		main(int argc, char **argv)
 	t_var	*vari;
 
 	vari = &v;
-	if (argc > 1 && check_args(argc, argv) == 1)
+	if (argc > 1)
 	{
 		initialization(vari);
-		validation(vari, argc, argv);
-		if (argc < 8)
-			easysort(vari);
+		if (argc == 2)
+			valid_args(vari, argv[1]);
 		else
-		{
-			ft_qsort(vari->sorted, vari->size_a, sizeof(int), ft_compare);
-			vari->base_n = vari->sorted[vari->size_a / 3];
-			valid_sign(vari);
-			cut_a(vari);
-			while (vari->size_b > 0)
+			validation(vari, argc, argv);
+		if (check_args(vari) == 1)
+		{	
+			if (vari->size_a < 7)
+				easysort(vari);
+			else
 			{
-				valid_pos(vari);
-				put_on_place(vari);
+				ft_qsort(vari->sorted, vari->size_a, sizeof(int), ft_compare);
+				vari->base_n = vari->sorted[vari->size_a / 3];
+				valid_sign(vari);
+				cut_a(vari);
+				while (vari->size_b > 0)
+				{
+					valid_pos(vari);
+					put_on_place(vari);
+				}
 			}
-		}
 
 		////////////////////////////////////////////////////////////////
 		ft_putstr("\nbase_n = ");
@@ -67,6 +72,9 @@ int		main(int argc, char **argv)
 			i++;
 		}
 		////////////////////////////////////////////////////////////////
+		}
+		else
+			ft_putstr("Error");
 	}
 	else
 	    ft_putstr("Error\n");

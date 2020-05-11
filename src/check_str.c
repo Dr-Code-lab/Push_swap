@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation.c                                       :+:      :+:    :+:   */
+/*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:38:00 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/11 22:02:28 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/11 01:17:34 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
-int	check_args(t_var *vari)
+int		check_str(char *arg)
 {
-    int o;
-    int i;
+	size_t	i;
+	size_t	len;
 
-    i = 0;
-    while (i < vari->size_a)
-    {
-        o = i + 1;
-        while (o < vari->size_a)
-        {
-            if (vari->stk_a[i] == vari->stk_a[o])
-                return (0);
-            o++;
-        }
-        i++;
-    }
-    return (1);
+	i = 0;
+	len = ft_strlen(arg);
+	while (i < len)
+	{
+		if ((arg[i] > '9' || arg[i] < '0') && arg[i] != ' ')
+			return (0);
+		i++;
+	}
+	return (1);
 }
