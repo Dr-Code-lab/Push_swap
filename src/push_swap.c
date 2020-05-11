@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:14:19 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/11 22:00:15 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/11 22:42:39 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,45 +41,11 @@ int		main(int argc, char **argv)
 					put_on_place(vari);
 				}
 			}
-
-		////////////////////////////////////////////////////////////////
-		ft_putstr("\nbase_n = ");
-		ft_putnbr(vari->base_n);
-		ft_putchar('\n');
-		int i = 0;
-		ft_putstr("sorted: ");
-		while (i < argc - 1)
-		{
-			ft_putnbr(vari->sorted[i]);
-			write(1, " ", 2);
-			i++;
-		}
-		write(1, "\n", 2);
-		i = 0;
-		ft_putstr("A:\n");
-		while (i < vari->size_a)
-		{
-			ft_putnbr(vari->stk_a[i]);
-			write(1, "\n", 1);
-			i++;
-		}
-		i = 0;
-		ft_putstr("B:\n");
-		while (i < vari->size_b)
-		{
-			ft_putnbr(vari->stk_b[i]);
-			write(1, "\n", 1);
-			i++;
-		}
-		////////////////////////////////////////////////////////////////
 		}
 		else
-			ft_putstr("Error");
+			ft_putstr("Error\n");
 	}
 	else
 	    ft_putstr("Error\n");
-	////////////////////////////////////////////////////////////////////
-	write(1, "FIN\n", 4);
-	////////////////////////////////////////////////////////////////////
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:38:00 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/11 21:40:11 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/11 22:40:19 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 static char		**init_args(char **args, char *arg, size_t c)
 {
-	/////////////
-	ft_putchar('\n');
-	ft_putstr("INITING...");
-	ft_putchar('\n');
-	/////////////
 	size_t	i;
 	size_t	o;
 
@@ -30,12 +25,6 @@ static char		**init_args(char **args, char *arg, size_t c)
 	{
 		if (arg[i] == ' ' || arg[i] == '\0')
 		{
-			/////////////
-			ft_putchar('\n');
-			ft_putstr("o = ");
-			ft_putnbr(o);
-			ft_putchar('\n');
-			/////////////
 			args[c] = ft_memalloc(sizeof(char) * (o + 1));
 			o = 0;
 			i++;
@@ -47,22 +36,11 @@ static char		**init_args(char **args, char *arg, size_t c)
 			o++;
 		}
 	}
-	/////////////
-	ft_putchar('\n');
-	ft_putstr("INITING is OK");
-	ft_putchar('\n');
-	/////////////
 	return (args);
 }
 
 static char		**fill_args(char **args, char *arg)
 {
-	/////////////
-	ft_putstr(arg);
-	ft_putstr("FILLING...");
-	ft_putnbr(ft_strlen(arg));
-	ft_putchar('\n');
-	/////////////
 	size_t	i;
 	size_t	o;
 	size_t	j;
@@ -76,30 +54,13 @@ static char		**fill_args(char **args, char *arg)
 	{
 		if (arg[i] == ' ')
 		{
-			/////////////
-			ft_putstr("FILLING ' ' o = ");
-			/////////////
-			ft_putnbr(o);
-			ft_putchar('|');
 			o++;
-			ft_putnbr(o);
 			j = 0;
 			i++;
 		}
 		else
 		{
-			ft_putchar('\n');
-			ft_putchar(arg[i]);
-			ft_putchar('\n');
-			ft_putchar(args[o][j]);
-			ft_putchar('\n');
 			args[o][j] = arg[i];
-			ft_putchar(args[o][j]);
-			ft_putchar('\n');
-			/////////////
-			ft_putstr("FILLed.char.");
-			ft_putchar('\n');
-			/////////////
 			i++;
 			j++;
 		}
@@ -127,7 +88,6 @@ void	valid_vari(char **args, t_var *vari, size_t c)
 
 void	valid_args(t_var *vari, char *arg)
 {
-	ft_putstr(arg);
 	size_t	i;
 	size_t	c;
 	char **args;
@@ -141,27 +101,10 @@ void	valid_args(t_var *vari, char *arg)
 		{
 			if (arg[i] == ' ')
 				c++;
-		////////////
-		ft_putstr("	c = ");
-		ft_putnbr(c);
-		ft_putchar('\n');
-		////////////
 			i++;
 		}
 		args = init_args(args, arg, c);
 		args = fill_args(args, arg);
-	valid_vari(args, vari, c);
+		valid_vari(args, vari, c);
 	}
-	////////////
-	i = 0;
-	while (i < c)
-	{
-		ft_putchar('\n');
-		ft_putnbr(vari->stk_a[i]);
-		ft_putstr("	c = ");
-		ft_putnbr(c);
-		ft_putchar('\n');
-		i++;
-	}
-	////////////
 }	

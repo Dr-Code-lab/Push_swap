@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 11:39:55 by ophuong           #+#    #+#             */
-/*   Updated: 2020/03/27 11:46:00 by ophuong          ###   ########lyon.fr   */
+/*   Updated: 2020/05/11 22:26:22 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ int		main(int argc, char **argv)
 	if (argc > 1)
 	{
 		initialization(vari);
-		validation(vari, argc, argv);
+		if (argc == 2)
+			valid_args(vari, argv[1]);
+		else
+			validation(vari, argc, argv);
 		while (get_next_line(0, &move) > 0)
 		{
 			if (ft_strcmp(move, "sa") == 0)
