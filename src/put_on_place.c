@@ -1,34 +1,111 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*    put_on_place.c                                         :+:      :+:    :+:   */
+/*    put_on_place.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/07 16:00:18 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/11 22:17:05 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/21 11:37:51 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
-static void		move_up(t_var *vari, int i)
+static void		move_up(t_var *vari, int pos)
 {
-	while (vari->stk_b[0] != vari->sis_a[i].n)
-	{
-		rb(vari);
-		ft_putstr("rb\n");
-	}			
+		/////////////
+		//printf("STEPS = %d\n", vari->sis_b[pos].steps);
+		//printf("WAY = %d\n", vari->sis_b[pos].way);
+		//
+		if (vari->sis_b[pos].way == 1)
+		{
+			int	i;
+
+			i = 0;
+			while (vari->sis_b[pos].n != vari->stk_b[0] && vari->sis_b[pos].steps - vari->sis_b[pos].up > i)
+			{
+				rr(vari);
+				ft_putstr("rr\n");
+				i++;
+			}
+			while (vari->sis_b[pos].n != vari->stk_b[0])
+			{
+				rb(vari);
+				ft_putstr("rb\n");
+			}
+			while (vari->sis_b[pos].steps - vari->sis_b[pos].up > i)
+			{
+				ra(vari);
+				ft_putstr("ra\n");
+				i++;
+			}
+		}
+		else
+		{
+			int	i;
+
+			i = 0;
+			while (vari->sis_b[pos].n != vari->stk_b[0])
+			{
+				rb(vari);
+				ft_putstr("rb\n");
+			}
+			while (vari->sis_b[pos].steps - vari->sis_b[pos].up > i)
+			{
+				rra(vari);
+				ft_putstr("rra\n");
+				i++;
+			}
+		}
 }
 
-static void		move_down(t_var *vari, int i)
+static void		move_down(t_var *vari, int pos)
 {
-	while (vari->stk_b[0] != vari->sis_a[i].n)
-	{
-		rrb(vari);
-		ft_putstr("rrb\n");
-	}			
+		/////////////
+		//printf("STEPS = %d\n", vari->sis_b[pos].steps);
+		//printf("WAY = %d\n", vari->sis_b[pos].way);
+		//
+		if (vari->sis_b[pos].way == 1)
+		{
+			int	i;
 
+			i = 0;
+			while (vari->sis_b[pos].n != vari->stk_b[0] && vari->sis_b[pos].steps - vari->sis_b[pos].down > i)
+			{
+				rrr(vari);
+				ft_putstr("rrr\n");
+				i++;
+			}
+			while (vari->sis_b[pos].n != vari->stk_b[0])
+			{
+				rrb(vari);
+				ft_putstr("rrb\n");
+			}
+			while (vari->sis_b[pos].steps - vari->sis_b[pos].down > i)
+			{
+				rra(vari);
+				ft_putstr("rra\n");
+				i++;
+			}
+		}
+		else
+		{
+			int	i;
+
+			i = 0;
+			while (vari->sis_b[pos].n != vari->stk_b[0])
+			{
+				rrb(vari);
+				ft_putstr("rrb\n");
+			}
+			while (vari->sis_b[pos].steps - vari->sis_b[pos].down > i)
+			{
+				ra(vari);
+				ft_putstr("ra\n");
+				i++;
+			}
+		}
 }
 
 static int		get_cur(t_var *vari)
@@ -36,34 +113,33 @@ static int		get_cur(t_var *vari)
 	int i;
 	int	pos;
 
-	i = 0;
-	if (vari->size_a > 0)
+	pos = 0;
+	i = 1;
+	while (i < vari->size_b)
 	{
-		while (vari->stk_a[0] != vari->sis_a[i].n)
-			i++;
-		pos = vari->sis_a[i].pos - 1;
-		i = 0;
-		while (vari->sis_a[i].pos != pos)
-			i++;
+		if (vari->sis_b[pos].steps > vari->sis_b[i].steps)
+			pos = i;
+		i++;
 	}
-	else
-	{
-		pos = vari->size_b - 1;
-		while (vari->sis_a[i].pos != pos)
-			i++;
-	}
-	return (i);
+	return (pos);
 }
 
 void	put_on_place(t_var	*vari)
 {
-	int	i;
-
-	i = get_cur(vari);
-	if (vari->sis_a[i].up < vari->sis_a[i].down)
-		move_up(vari, i);
-	else
-		move_down(vari, i);
+	int	pos;
+	
+	pos = get_cur(vari);
+	//////////////
+	//printf("NUMBER = %d\n", vari->stk_b[pos]);
+	//printf("N      = %d\n", vari->sis_b[pos].n);
+	//
+	if (vari->sis_b[pos].steps != 0 && vari->size_a >= 3)
+	{
+		if (vari->sis_b[pos].up <= vari->sis_b[pos].down)
+			move_up(vari, pos);
+		else
+			move_down(vari, pos);
+	}
 	pa(vari);
 	ft_putstr("pa\n");
 }

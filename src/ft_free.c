@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   valid_sign.c                                       :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/17 14:38:00 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/18 23:20:47 by Student          ###   ########.fr       */
+/*   Created: 2020/02/17 14:14:19 by ophuong           #+#    #+#             */
+/*   Updated: 2020/05/18 22:00:20 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
-void	valid_sign(t_var *vari)
+void	ft_free(t_var *vari)
 {
-	if (vari)
-	vari->min_n = vari->sorted[0];
-	vari->max_n = vari->sorted[vari->size_a - 1];
-	{
-		if (!(vari->sis_a = malloc(sizeof(t_num) * (vari->size_a))))
-			return ;
-		ft_bzero(vari->sis_a, vari->size_a * sizeof(t_num)); 
-		if (!(vari->sis_b = malloc(sizeof(t_num) * (vari->size_a))))
-			return ;
-		ft_bzero(vari->sis_b, vari->size_a * sizeof(t_num)); 
-		sign_massive(vari);
-	}
+	free(vari->stk_a);
+	vari->stk_a = NULL;
+	free(vari->stk_b);
+	vari->stk_b = NULL;
+	free(vari->sorted);
+	vari->sorted = NULL;
+	free(vari->sis_a);
+	vari->sis_a = NULL;
+	free(vari->sis_b);
+	vari->sis_b = NULL;
 }

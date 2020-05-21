@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 20:24:38 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/11 21:58:53 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/18 22:53:46 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,25 @@ typedef struct number
 	int	n;
 	int	up;
 	int	down;
-	int	pos;
+	int	way;
+	int	steps;
 }		t_num;
 
 typedef struct
 {
 	int				base_n;		/*basic element*/
+	int				min_n;
+	int				max_n;
 	int				*sorted;	/*sorted array of arguments*/
 	int				*stk_a;		/*satck for sorting*/
 	int				*stk_b;		/*temporary stack*/
 	int				size_a;		/*size of stack A*/
 	int				size_b;		/*size of stack B*/
 	t_num				*sis_a;		/*signed stack A*/
+	t_num				*sis_b;		/*signed stack B*/
 }					t_var;		/*name of type*/
 
+void	ft_free(t_var *vari);
 int		check_str(char *arg);
 void	valid_args(t_var *vari, char *arg);
 void	put_on_place(t_var *vari);

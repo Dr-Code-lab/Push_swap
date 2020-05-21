@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:14:19 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/11 22:42:39 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/21 11:57:08 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,76 @@ int		main(int argc, char **argv)
 			validation(vari, argc, argv);
 		if (check_args(vari) == 1)
 		{	
+	//////////
+	int i = 0;
+	while (i < vari->size_a)
+	{
+		printf("A: %d = %d\n", i, vari->stk_a[i]);
+		i++;
+	}
+	i = 0;
+	while (i < vari->size_b)
+	{
+		printf("B: %d = %d\n", i, vari->stk_b[i]);
+		i++;
+	}
+	//
 			if (vari->size_a < 7)
 				easysort(vari);
 			else
 			{
 				ft_qsort(vari->sorted, vari->size_a, sizeof(int), ft_compare);
-				vari->base_n = vari->sorted[vari->size_a / 3];
 				valid_sign(vari);
+				vari->base_n = vari->sorted[vari->size_a / 2 - 1];
 				cut_a(vari);
+	//////////
+	int i = 0;
+	while (i < vari->size_a)
+	{
+		printf("A: %d = %d\n", i, vari->stk_a[i]);
+		i++;
+	}
+	i = 0;
+	while (i < vari->size_b)
+	{
+		printf("B: %d = %d\n", i, vari->stk_b[i]);
+		i++;
+	}
+	//
+			
 				while (vari->size_b > 0)
 				{
+					sign_massive(vari);
 					valid_pos(vari);
 					put_on_place(vari);
+				}
+				if (vari->size_b == 0 && vari->stk_a[0] != vari->min_n)
+				{
+					int	i_min;
+
+					i_min = 0;
+					while (vari->stk_a[i_min] != vari->min_n)
+						i_min++;
+					////////
+					printf("I_MIN = %d\n", i_min);
+					printf("SIZE_A = %d\n", vari->size_a);
+					//
+					if (i_min < vari->size_a / 2)
+					{
+						while (vari->stk_a[0] != vari->min_n)
+						{
+							ra(vari);
+							ft_putstr("ra\n");
+						}
+					}
+					else
+					{
+						while (vari->stk_a[0] != vari->min_n)
+						{
+							rra(vari);
+							ft_putstr("rra\n");
+						}
+					}
 				}
 			}
 		}
@@ -47,5 +105,20 @@ int		main(int argc, char **argv)
 	}
 	else
 	    ft_putstr("Error\n");
+	//////////
+	int i = 0;
+	while (i < vari->size_a)
+	{
+		printf("A: %d = %d\n", i, vari->stk_a[i]);
+		i++;
+	}
+	i = 0;
+	while (i < vari->size_b)
+	{
+		printf("B: %d = %d\n", i, vari->stk_b[i]);
+		i++;
+	}
+	//
+	ft_free(vari);
 	return (0);
 }

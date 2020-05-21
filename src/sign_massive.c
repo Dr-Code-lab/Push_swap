@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sing_massive.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:14:19 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/07 14:09:23 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/21 00:29:40 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
-
-static int	get_position(t_var *vari, int i)
-{
-	int	pos;
-
-	pos = 0;
-	while(vari->sorted[pos] != vari->stk_a[i])
-		pos++;
-	return (pos);
-}
 
 void	sign_massive(t_var *vari)
 {
@@ -32,7 +22,18 @@ void	sign_massive(t_var *vari)
 		vari->sis_a[i].n = vari->stk_a[i];
 		vari->sis_a[i].up = i;
 		vari->sis_a[i].down = vari->size_a - i;
-		vari->sis_a[i].pos = get_position(vari, i);
+		vari->sis_a[i].steps = 0;
+		vari->sis_a[i].way = 0;
+		i++;  
+	}
+	i = 0;
+	while (i < vari->size_b)
+	{
+		vari->sis_b[i].n = vari->stk_b[i];
+		vari->sis_b[i].up = i;
+		vari->sis_b[i].down = vari->size_b - i;
+		vari->sis_b[i].steps = 0;
+		vari->sis_b[i].way = 0;
 		i++;  
 	}
 }

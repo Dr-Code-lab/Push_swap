@@ -6,7 +6,7 @@
 #    By: ophuong <ophuong@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/23 20:26:08 by ophuong           #+#    #+#              #
-#    Updated: 2020/05/11 00:19:08 by Student          ###   ########.fr        #
+#    Updated: 2020/05/12 23:15:56 by Student          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,8 @@ SOURCES_LIST = a_sort.c\
 	valid_pos.c\
 	valid_sign.c\
 	valid_args.c\
-	check_str.c
+	check_str.c\
+	ft_free.c
 SOURCES_LIST_PS = push_swap.c
 SOURCES_LIST_CH = checker.c
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
