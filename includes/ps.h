@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 20:24:38 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/18 22:53:46 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/21 23:25:39 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct
 	t_num				*sis_b;		/*signed stack B*/
 }					t_var;		/*name of type*/
 
+void	check_minmax(char *av);
 void	ft_free(t_var *vari);
 int		check_str(char *arg);
 void	valid_args(t_var *vari, char *arg);

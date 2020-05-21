@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/07 16:00:18 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/21 11:37:51 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/21 17:51:03 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,11 +131,12 @@ void	put_on_place(t_var	*vari)
 	pos = get_cur(vari);
 	//////////////
 	//printf("NUMBER = %d\n", vari->stk_b[pos]);
-	//printf("N      = %d\n", vari->sis_b[pos].n);
+	//printf("STEPS  = %d\n", vari->sis_b[pos].steps);
+	//printf("WAY    = %d\n", vari->sis_b[pos].way);
 	//
 	if (vari->sis_b[pos].steps != 0 && vari->size_a >= 3)
 	{
-		if (vari->sis_b[pos].up <= vari->sis_b[pos].down)
+		if (vari->sis_b[pos].up < vari->sis_b[pos].down)
 			move_up(vari, pos);
 		else
 			move_down(vari, pos);

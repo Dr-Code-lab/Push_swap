@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:38:00 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/18 23:18:11 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/21 23:27:27 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ static void	valid_vari(char **args, t_var *vari, size_t c)
 	vari->sorted = ft_memalloc(sizeof(int) * vari->size_a);
 	while (i < c)
 	{
+		check_minmax(args[i]);
 		vari->stk_a[i] = ft_atoi(args[i]);
 		if (c > 3)
 			vari->sorted[i] = vari->stk_a[i];
@@ -123,6 +124,6 @@ void	valid_args(t_var *vari, char *arg)
 	}
 	//free_args(&args, c);
 	///////////
-	ft_putstr("ARGS IS FREE\n");
+//	ft_putstr("ARGS IS FREE\n");
 	//
 }	

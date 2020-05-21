@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 16:00:18 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/21 14:09:02 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/21 16:23:21 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,6 @@ void	a_sort(t_var *vari)
 	{
 		if (vari->size_a == 3)
 		{
-		//////
-		printf("QQQQQ\n");
-		////
-			
 		/*	if (vari->stk_a[0] > vari->stk_a[2] && vari->stk_a[0] < vari->stk_a[1])
 			{
 				rra(vari);

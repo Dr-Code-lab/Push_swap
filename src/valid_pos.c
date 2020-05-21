@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/07 16:00:18 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/21 11:56:09 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/21 17:21:17 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 */
 static void	set_steps_b(t_var *vari, int i)
 {
-		if (vari->sis_b[i].up <= vari->sis_b[i].down)
+		if (vari->sis_b[i].up < vari->sis_b[i].down)
 			vari->sis_b[i].steps = vari->sis_b[i].up;
 		else
 			vari->sis_b[i].steps = vari->sis_b[i].down;
@@ -38,7 +38,7 @@ static void	set_steps_ab(t_var *vari, int i, int o)
 		int a = 0;
 		int	b = 0;
 
-		if (vari->sis_a[o].up < vari->sis_a[o].down)
+		if (vari->sis_a[o + 1].up < vari->sis_a[o + 1].down)
 			a = vari->sis_a[o + 1].up;
 		else
 			a = vari->sis_a[o + 1].down;

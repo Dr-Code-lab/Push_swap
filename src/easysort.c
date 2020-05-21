@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 16:00:18 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/21 15:18:13 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/21 18:56:06 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void		cut_sort(t_var *vari)
 
 	i = vari->size_a;
 	ft_qsort(vari->sorted, vari->size_a, sizeof(int), ft_compare);
-	printf("BASE_N = %d\n",vari->base_n = vari->sorted[vari->size_a / 2]); /////////////
+	vari->base_n = vari->sorted[vari->size_a / 2];
 	while (i--)
 	{
 		if (vari->stk_a[0] >= vari->base_n)
@@ -33,7 +33,7 @@ static void		cut_sort(t_var *vari)
 		}
 	}
 	///////////
-	printf("SIZE_A = %d\nSIZE_B = %d\n", vari->size_a, vari->size_b);
+	//printf("SIZE_A = %d\nSIZE_B = %d\n", vari->size_a, vari->size_b);
    	/////////////
 	a_sort(vari);
 	b_sort(vari);

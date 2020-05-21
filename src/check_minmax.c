@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_str.c                                        :+:      :+:    :+:   */
+/*  eck_minmax.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:38:00 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/21 23:13:22 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/21 23:23:52 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
-int		check_str(char *arg)
+void	check_minmax(char *av)
 {
-	size_t	i;
-	size_t	len;
-
-	i = 0;
-	len = ft_strlen(arg);
-	while (i < len)
+	/*//////////
+	ft_putstr(av);
+	ft_putchar('\n');
+	ft_putchar(av[0]);
+	ft_putchar(av[1]);
+	ft_putchar('\n');
+	ft_putnbr(ft_atoi(av));
+	ft_putchar('\n');
+	*///
+	if ((ft_strlen(av) >= 10 && ft_atoi(av) < 0 && av[0] != '-') ||
+			(ft_strlen(av) == 11 && ft_atoi(av) >= -1410065407  && av[0] == '-' && av[1] > 1)
+			|| ft_strlen(av) > 11)
 	{
-		if ((arg[i] > '9' || arg[i] < '0') && arg[i] != ' ' && arg[i] != '-')
-		{
-			ft_putstr("Error\n");
-			exit (0);
-		}
-		i++;
+		write(2, "Error\n", 6);
+		exit (0);
 	}
-	return (1);
 }
+
