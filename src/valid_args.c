@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:38:00 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/21 23:27:27 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/23 20:30:33 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static char		**fill_args(char **args, char *arg)
 	return (args);
 }
 
-static void	valid_vari(char **args, t_var *vari, size_t c)
+static void		valid_vari(char **args, t_var *vari, size_t c)
 {
 	size_t	i;
 
@@ -87,25 +87,11 @@ static void	valid_vari(char **args, t_var *vari, size_t c)
 	}
 }
 
-/*static void		free_args(char ***args, size_t c)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < c)
-	{
-		free(*args[i]);
-		*args[i] = NULL;
-	}
-	free(*args);
-	*args = NULL;
-}*/
-
-void	valid_args(t_var *vari, char *arg)
+void			valid_args(t_var *vari, char *arg)
 {
 	size_t	i;
 	size_t	c;
-	char **args;
+	char	**args;
 
 	args = NULL;
 	c = 1;
@@ -122,8 +108,4 @@ void	valid_args(t_var *vari, char *arg)
 		args = fill_args(args, arg);
 		valid_vari(args, vari, c);
 	}
-	//free_args(&args, c);
-	///////////
-//	ft_putstr("ARGS IS FREE\n");
-	//
-}	
+}

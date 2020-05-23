@@ -6,60 +6,56 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 11:39:55 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/21 21:18:15 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/23 21:16:52 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
-int		main(int argc, char **argv)
+static void	ft_error(void)
 {
-	int	i;
-	t_var	v;
-	t_var	*vari;
-	char	*move;
+	write(2, "Error\n", 6);
+	exit(0);
+}
 
-	vari = &v;
+static void	get_move(t_var *vari, char *move)
+{
+	if (ft_strcmp(move, "sa") == 0)
+		sa(vari);
+	else if (ft_strcmp(move, "sb") == 0)
+		sb(vari);
+	else if (ft_strcmp(move, "ss") == 0)
+		ss(vari);
+	else if (ft_strcmp(move, "pb") == 0)
+		pb(vari);
+	else if (ft_strcmp(move, "pa") == 0)
+		pa(vari);
+	else if (ft_strcmp(move, "rb") == 0)
+		rb(vari);
+	else if (ft_strcmp(move, "ra") == 0)
+		ra(vari);
+	else if (ft_strcmp(move, "rr") == 0)
+		rr(vari);
+	else if (ft_strcmp(move, "rra") == 0)
+		rra(vari);
+	else if (ft_strcmp(move, "rrb") == 0)
+		rrb(vari);
+	else if (ft_strcmp(move, "rrr") == 0)
+		rrr(vari);
+	else
+		ft_error();
+}
+
+static void	check_it(t_var *vari)
+{
+	char	*move;
+	int		i;
+
 	move = NULL;
-	if (argc > 1)
+	if (check_args(vari) == 1)
 	{
-		initialization(vari);
-		if (argc == 2)
-			valid_args(vari, argv[1]);
-		else
-			validation(vari, argc, argv);
-		if (check_args(vari) == 1)
-		{
 		while (get_next_line(0, &move) > 0)
-		{
-			if (ft_strcmp(move, "sa") == 0)
-				sa(vari);
-			else if (ft_strcmp(move, "sb") == 0)
-				sb(vari);
-			else if (ft_strcmp(move, "ss") == 0)
-				ss(vari);
-			else if (ft_strcmp(move, "pb") == 0)
-				pb(vari);
-			else if (ft_strcmp(move, "pa") == 0)
-				pa(vari);
-			else if (ft_strcmp(move, "rb") == 0)
-				rb(vari);
-			else if (ft_strcmp(move, "ra") == 0)
-				ra(vari);
-			else if (ft_strcmp(move, "rr") == 0)
-				rr(vari);
-			else if (ft_strcmp(move, "rra") == 0)
-				rra(vari);
-			else if (ft_strcmp(move, "rrb") == 0)
-				rrb(vari);
-			else if (ft_strcmp(move, "rrr") == 0)
-				rrr(vari);
-			else
-			{
-				write(2, "Error\n", 6);
-				exit (0);
-			}
-		}
+			get_move(vari, move);
 		i = 0;
 		while (i < vari->size_a - 1)
 		{
@@ -68,16 +64,29 @@ int		main(int argc, char **argv)
 			else
 			{
 				ft_putstr("\e[31mKO\n");
-				return (0);
+				return ;
 			}
 		}
 		ft_putstr("\e[32mOK\n");
-		}
+	}
+	else
+		ft_error();
+}
+
+int			main(int argc, char **argv)
+{
+	t_var	v;
+	t_var	*vari;
+
+	vari = &v;
+	if (argc > 1)
+	{
+		initialization(vari);
+		if (argc == 2)
+			valid_args(vari, argv[1]);
 		else
-		{
-			write(2, "Error\n", 6);
-			exit (0);
-		}
+			validation(vari, argc, argv);
+		check_it(vari);
 		return (0);
 	}
 }
