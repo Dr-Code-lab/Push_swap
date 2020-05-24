@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 20:24:38 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/23 23:54:47 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/24 11:29:05 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdlib.h>
 # include <string.h>
 # include <fcntl.h>
-# include <stdio.h>
 
 typedef struct
 {
