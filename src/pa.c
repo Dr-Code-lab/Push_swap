@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 15:20:12 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/23 21:44:30 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/24 13:13:41 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,20 @@ void	pa(t_var *vari)
 	int	i;
 
 	i = vari->size_a;
-	while (i != 0)
+	if (vari->size_b > 0)
 	{
-		vari->stk_a[i] = vari->stk_a[i - 1];
-		i--;
+		while (i != 0)
+		{
+			vari->stk_a[i] = vari->stk_a[i - 1];
+			i--;
+		}
+		vari->stk_a[0] = vari->stk_b[0];
+		while (i < vari->size_b)
+		{
+			vari->stk_b[i] = vari->stk_b[i + 1];
+			i++;
+		}
+		vari->size_b -= 1;
+		vari->size_a += 1;
 	}
-	vari->stk_a[0] = vari->stk_b[0];
-	while (i < vari->size_b)
-	{
-		vari->stk_b[i] = vari->stk_b[i + 1];
-		i++;
-	}
-	vari->size_b -= 1;
-	vari->size_a += 1;
 }

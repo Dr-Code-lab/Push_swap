@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 17:29:39 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/23 19:26:32 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/24 13:18:37 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	sa(t_var *vari)
 {
-	ft_swap(&vari->stk_a[0], &vari->stk_a[1], sizeof(int));
+	if (vari->size_a > 1)
+		ft_swap(&vari->stk_a[0], &vari->stk_a[1], sizeof(int));
 }

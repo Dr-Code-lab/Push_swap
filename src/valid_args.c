@@ -6,26 +6,26 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:38:00 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/23 20:30:33 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/24 16:55:37 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
-static char		**init_args(char **args, char *arg, size_t c)
+static void		init_args(t_var *vari, char *arg, size_t c)
 {
 	size_t	i;
 	size_t	o;
 
 	i = 0;
 	o = 0;
-	args = ft_memalloc(sizeof(char*) * (c + 1));
+	vari->args = ft_memalloc(sizeof(char*) * (c + 1));
 	c = 0;
 	while (i <= ft_strlen(arg))
 	{
 		if (arg[i] == ' ' || arg[i] == '\0')
 		{
-			args[c] = ft_memalloc(sizeof(char) * (o + 1));
+			vari->args[c] = ft_memalloc(sizeof(char) * (o + 1));
 			o = 0;
 			i++;
 			c++;
@@ -36,10 +36,9 @@ static char		**init_args(char **args, char *arg, size_t c)
 			o++;
 		}
 	}
-	return (args);
 }
 
-static char		**fill_args(char **args, char *arg)
+static void		fill_args(t_var *vari, char *arg)
 {
 	size_t	i;
 	size_t	o;
@@ -60,15 +59,14 @@ static char		**fill_args(char **args, char *arg)
 		}
 		else
 		{
-			args[o][j] = arg[i];
+			vari->args[o][j] = arg[i];
 			i++;
 			j++;
 		}
 	}
-	return (args);
 }
 
-static void		valid_vari(char **args, t_var *vari, size_t c)
+static void		valid_vari(t_var *vari, size_t c)
 {
 	size_t	i;
 
@@ -79,8 +77,8 @@ static void		valid_vari(char **args, t_var *vari, size_t c)
 	vari->sorted = ft_memalloc(sizeof(int) * vari->size_a);
 	while (i < c)
 	{
-		check_minmax(args[i]);
-		vari->stk_a[i] = ft_atoi(args[i]);
+		check_minmax(vari->args[i]);
+		vari->stk_a[i] = ft_atoi(vari->args[i]);
 		if (c > 3)
 			vari->sorted[i] = vari->stk_a[i];
 		i++;
@@ -91,9 +89,7 @@ void			valid_args(t_var *vari, char *arg)
 {
 	size_t	i;
 	size_t	c;
-	char	**args;
 
-	args = NULL;
 	c = 1;
 	i = 0;
 	if (check_str(arg) == 1)
@@ -104,8 +100,8 @@ void			valid_args(t_var *vari, char *arg)
 				c++;
 			i++;
 		}
-		args = init_args(args, arg, c);
-		args = fill_args(args, arg);
-		valid_vari(args, vari, c);
+		init_args(vari, arg, c);
+		fill_args(vari, arg);
+		valid_vari(vari, c);
 	}
 }

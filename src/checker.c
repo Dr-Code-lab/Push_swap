@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 11:39:55 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/23 21:16:52 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/24 15:23:42 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,15 @@ static void	check_it(t_var *vari)
 		while (get_next_line(0, &move) > 0)
 			get_move(vari, move);
 		i = 0;
-		while (i < vari->size_a - 1)
+		while (i < vari->size_a - 1 || vari->size_a == 0)
 		{
-			if (vari->stk_a[i] < vari->stk_a[i + 1])
+			if ((vari->stk_a[i] < vari->stk_a[i + 1] || vari->size_a == 1) && vari->size_b == 0)
 				i++;
 			else
 			{
 				ft_putstr("\e[31mKO\n");
+				ft_free(vari);
+				free(move);
 				return ;
 			}
 		}
@@ -87,6 +89,7 @@ int			main(int argc, char **argv)
 		else
 			validation(vari, argc, argv);
 		check_it(vari);
+		ft_free(vari);
 		return (0);
 	}
 }

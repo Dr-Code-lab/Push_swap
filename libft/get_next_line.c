@@ -6,7 +6,7 @@
 /*   By: ophuong <ophuong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/02 17:37:50 by ophuong           #+#    #+#             */
-/*   Updated: 2020/03/14 15:07:09 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/05/24 17:18:54 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ static int		f_getline(char **line, t_list **buf_long, char *ptr)
 		free(tmp);
 		return (1);
 	}
+	free(tmp);
 	return (0);
 }
 

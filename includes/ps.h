@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 20:24:38 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/24 11:29:05 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/24 16:55:05 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <fcntl.h>
+# include <stdio.h>
 
 typedef struct
 {
@@ -30,6 +31,7 @@ typedef struct
 
 typedef struct
 {
+	char			**args;
 	int				base_n;
 	int				min_n;
 	int				max_n;
