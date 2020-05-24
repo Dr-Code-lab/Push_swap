@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 20:32:35 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/23 21:41:01 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/24 13:34:05 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,13 @@ void	rrb(t_var *vari)
 
 	i = vari->size_b;
 	tmp = vari->stk_b[i - 1];
-	while (i > 0)
+	if (vari->size_b > 1)
 	{
-		vari->stk_b[i] = vari->stk_b[i - 1];
-		i--;
+		while (i > 0)
+		{
+			vari->stk_b[i] = vari->stk_b[i - 1];
+			i--;
+		}
+		vari->stk_b[0] = tmp;
 	}
-	vari->stk_b[0] = tmp;
 }

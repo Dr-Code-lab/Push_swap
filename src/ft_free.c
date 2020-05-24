@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:14:19 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/23 19:21:10 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/24 17:07:20 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,20 @@
 
 void	ft_free(t_var *vari)
 {
+	int	i;
+
+	i = 0;
+	if (vari->args != NULL)
+	{
+		while (i <= vari->size_a)
+		{
+			free(vari->args[i]);
+			vari->args[i] = NULL;
+			i++;
+		}
+		free(vari->args);
+		vari->args=NULL;
+	}
 	free(vari->stk_a);
 	vari->stk_a = NULL;
 	free(vari->stk_b);

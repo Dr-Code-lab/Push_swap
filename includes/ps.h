@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 20:24:38 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/23 23:54:47 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/24 16:55:05 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct
 
 typedef struct
 {
+	char			**args;
 	int				base_n;
 	int				min_n;
 	int				max_n;

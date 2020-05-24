@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 20:32:35 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/23 21:19:39 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/24 13:35:12 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,13 @@ void	rra(t_var *vari)
 
 	i = vari->size_a;
 	tmp = vari->stk_a[i - 1];
-	while (i > 0)
+	if (vari->size_a > 1)
 	{
-		vari->stk_a[i] = vari->stk_a[i - 1];
-		i--;
+		while (i > 0)
+		{
+			vari->stk_a[i] = vari->stk_a[i - 1];
+			i--;
+		}
+		vari->stk_a[0] = tmp;
 	}
-	vari->stk_a[0] = tmp;
 }
