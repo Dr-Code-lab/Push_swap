@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:14:19 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/23 23:41:19 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/27 17:53:39 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,9 @@ int				main(int argc, char **argv)
 			let_sort(vari);
 		else
 			ft_putstr("Error\n");
+		ft_free(vari);
 	}
 	else
 		ft_putstr("Error\n");
-	ft_free(vari);
 	return (0);
 }

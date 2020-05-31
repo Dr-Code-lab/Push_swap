@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 20:24:38 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/24 16:55:05 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/31 18:35:20 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ typedef struct
 
 typedef struct
 {
-	char			**args;
 	int				base_n;
 	int				min_n;
 	int				max_n;
@@ -42,13 +41,14 @@ typedef struct
 	int				size_b;
 	t_num			*sis_a;
 	t_num			*sis_b;
+	char			**args;
 }					t_var;
 
 void				move_up(t_var *vari, int pos);
 void				move_down(t_var *vari, int pos);
 void				check_minmax(char *av);
 void				ft_free(t_var *vari);
-int					check_str(char *arg);
+void				check_str(char *arg);
 void				valid_args(t_var *vari, char *arg);
 void				put_on_place(t_var *vari);
 void				valid_pos(t_var *vari);

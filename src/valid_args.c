@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:38:00 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/24 16:55:37 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/31 18:34:42 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,10 @@ static void		fill_args(t_var *vari, char *arg)
 	size_t	i;
 	size_t	o;
 	size_t	j;
-	char	*tmp;
 
 	i = 0;
 	o = 0;
 	j = 0;
-	tmp = NULL;
 	while (i < ft_strlen(arg))
 	{
 		if (arg[i] == ' ')
@@ -92,16 +90,14 @@ void			valid_args(t_var *vari, char *arg)
 
 	c = 1;
 	i = 0;
-	if (check_str(arg) == 1)
+	check_str(arg);
+	while (i < ft_strlen(arg))
 	{
-		while (i < ft_strlen(arg))
-		{
-			if (arg[i] == ' ')
-				c++;
-			i++;
-		}
-		init_args(vari, arg, c);
-		fill_args(vari, arg);
-		valid_vari(vari, c);
+		if (arg[i] == ' ')
+			c++;
+		i++;
 	}
+	init_args(vari, arg, c);
+	fill_args(vari, arg);
+	valid_vari(vari, c);
 }

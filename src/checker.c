@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 11:39:55 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/24 15:23:42 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/24 19:30:11 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,30 +46,37 @@ static void	get_move(t_var *vari, char *move)
 		ft_error();
 }
 
+static void	final_check(t_var *vari)
+{
+	int	i;
+
+	i = 0;
+	while (i < vari->size_a - 1 || vari->size_a == 0)
+	{
+		if ((vari->stk_a[i] < vari->stk_a[i + 1]
+					|| vari->size_a == 1) && vari->size_b == 0)
+			i++;
+		else
+		{
+			ft_putstr("\e[31mKO\n");
+			ft_free(vari);
+			return ;
+		}
+	}
+	ft_putstr("\e[32mOK\n");
+}
+
 static void	check_it(t_var *vari)
 {
 	char	*move;
-	int		i;
 
 	move = NULL;
 	if (check_args(vari) == 1)
 	{
 		while (get_next_line(0, &move) > 0)
 			get_move(vari, move);
-		i = 0;
-		while (i < vari->size_a - 1 || vari->size_a == 0)
-		{
-			if ((vari->stk_a[i] < vari->stk_a[i + 1] || vari->size_a == 1) && vari->size_b == 0)
-				i++;
-			else
-			{
-				ft_putstr("\e[31mKO\n");
-				ft_free(vari);
-				free(move);
-				return ;
-			}
-		}
-		ft_putstr("\e[32mOK\n");
+		free(move);
+		final_check(vari);
 	}
 	else
 		ft_error();

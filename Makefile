@@ -6,7 +6,7 @@
 #    By: ophuong <ophuong@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/23 20:26:08 by ophuong           #+#    #+#              #
-#    Updated: 2020/05/23 23:55:59 by Student          ###   ########.fr        #
+#    Updated: 2020/05/31 19:30:29 by Student          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME_PS = push_swap
 NAME_CH = checker
 
 CC = gcc
-FLAGS = -Wall -Werror -Wextra -O3
+FLAGS = -Wall -Werror -Wextra
 LIBRARIES = -lft -L$(LIBFT_DIRECTORY)
 INCLUDES = -I$(HEADERS_DIRECTORY) -I$(LIBFT_HEADERS)
 

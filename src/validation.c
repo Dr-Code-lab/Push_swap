@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:38:00 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/23 19:32:37 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/31 18:36:16 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,13 @@ void	validation(t_var *vari, int ac, char **av)
 		vari->sorted = ft_memalloc(sizeof(int) * (vari->size_a));
 		while (o < ac)
 		{
-			if (check_str(av[o]) == 1)
-			{
-				check_minmax(av[o]);
-				vari->stk_a[i] = ft_atoi(av[o]);
-				if (ac > 4)
-					vari->sorted[i] = vari->stk_a[i];
-				i++;
-				o++;
-			}
+			check_str(av[o]);
+			check_minmax(av[o]);
+			vari->stk_a[i] = ft_atoi(av[o]);
+			if (ac > 4)
+				vari->sorted[i] = vari->stk_a[i];
+			i++;
+			o++;
 		}
 	}
 }

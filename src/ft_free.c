@@ -6,28 +6,31 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:14:19 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/24 17:07:20 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/24 19:20:46 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
-void	ft_free(t_var *vari)
+static void	free_args(t_var *vari)
 {
 	int	i;
 
 	i = 0;
-	if (vari->args != NULL)
+	while (i <= vari->size_a)
 	{
-		while (i <= vari->size_a)
-		{
-			free(vari->args[i]);
-			vari->args[i] = NULL;
-			i++;
-		}
-		free(vari->args);
-		vari->args=NULL;
+		free(vari->args[i]);
+		vari->args[i] = NULL;
+		i++;
 	}
+	free(vari->args);
+	vari->args = NULL;
+}
+
+void		ft_free(t_var *vari)
+{
+	if (vari->args != NULL)
+		free_args(vari);
 	free(vari->stk_a);
 	vari->stk_a = NULL;
 	free(vari->stk_b);
