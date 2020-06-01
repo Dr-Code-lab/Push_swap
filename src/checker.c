@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 11:39:55 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/24 19:30:11 by Student          ###   ########.fr       */
+/*   Updated: 2020/06/01 16:50:13 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ static void	final_check(t_var *vari)
 			i++;
 		else
 		{
-			ft_putstr("\e[31mKO\n");
+			ft_putstr("\e[31mKO\e[0m\n");
 			ft_free(vari);
 			return ;
 		}
 	}
-	ft_putstr("\e[32mOK\n");
+	ft_putstr("\e[32mOK\e[0m\n");
 }
 
 static void	check_it(t_var *vari)
@@ -74,8 +74,11 @@ static void	check_it(t_var *vari)
 	if (check_args(vari) == 1)
 	{
 		while (get_next_line(0, &move) > 0)
+		{
 			get_move(vari, move);
-		free(move);
+			free(move);
+		}
+		move = NULL;
 		final_check(vari);
 	}
 	else
