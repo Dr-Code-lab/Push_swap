@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 11:39:55 by ophuong           #+#    #+#             */
-/*   Updated: 2020/06/01 16:50:13 by Student          ###   ########.fr       */
+/*   Updated: 2020/06/15 21:09:40 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,6 @@ int			main(int argc, char **argv)
 			validation(vari, argc, argv);
 		check_it(vari);
 		ft_free(vari);
-		return (0);
+		exit(0);
 	}
 }
