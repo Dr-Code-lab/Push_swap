@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 16:00:18 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/21 18:56:06 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/23 21:43:22 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,11 @@ static void		cut_sort(t_var *vari)
 			ft_putstr("pb\n");
 		}
 	}
-	///////////
-	//printf("SIZE_A = %d\nSIZE_B = %d\n", vari->size_a, vari->size_b);
-   	/////////////
 	a_sort(vari);
 	b_sort(vari);
 }
 
-void			easysort(t_var	*vari)
+void			easysort(t_var *vari)
 {
 	int	c;
 	int	s_b;

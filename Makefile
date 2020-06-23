@@ -6,7 +6,7 @@
 #    By: ophuong <ophuong@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/23 20:26:08 by ophuong           #+#    #+#              #
-#    Updated: 2020/05/21 23:26:06 by Student          ###   ########.fr        #
+#    Updated: 2020/05/31 19:30:29 by Student          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME_PS = push_swap
 NAME_CH = checker
 
 CC = gcc
-FLAGS = -Wall -Werror -Wextra -O3
+FLAGS = -Wall -Werror -Wextra
 LIBRARIES = -lft -L$(LIBFT_DIRECTORY)
 INCLUDES = -I$(HEADERS_DIRECTORY) -I$(LIBFT_HEADERS)
 
@@ -52,7 +52,9 @@ SOURCES_LIST = a_sort.c\
 	valid_args.c\
 	check_str.c\
 	ft_free.c\
-	check_minmax.c
+	check_minmax.c\
+	move_up.c\
+	move_down.c
 SOURCES_LIST_PS = push_swap.c
 SOURCES_LIST_CH = checker.c
 SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))

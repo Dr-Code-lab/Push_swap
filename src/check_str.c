@@ -6,13 +6,13 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:38:00 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/21 23:13:22 by Student          ###   ########.fr       */
+/*   Updated: 2020/05/31 19:40:46 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
-int		check_str(char *arg)
+void	check_str(char *arg)
 {
 	size_t	i;
 	size_t	len;
@@ -21,12 +21,12 @@ int		check_str(char *arg)
 	len = ft_strlen(arg);
 	while (i < len)
 	{
-		if ((arg[i] > '9' || arg[i] < '0') && arg[i] != ' ' && arg[i] != '-')
+		if ((arg[i] > '9' || arg[i] < '0') && arg[i] != ' '
+				&& !(arg[i] == '-' && arg[i + 1] != '-'))
 		{
-			ft_putstr("Error\n");
-			exit (0);
+			write(2, "Error\n", 6);
+			exit(0);
 		}
 		i++;
 	}
-	return (1);
 }

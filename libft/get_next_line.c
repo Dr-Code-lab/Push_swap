@@ -6,7 +6,7 @@
 /*   By: ophuong <ophuong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/02 17:37:50 by ophuong           #+#    #+#             */
-/*   Updated: 2020/03/14 15:07:09 by ophuong          ###   ########.fr       */
+/*   Updated: 2020/06/05 17:22:50 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,10 @@ static t_list	*f_list(const int fd, t_list **head)
 	return (buf_long);
 }
 
-static int		f_getline(char **line, t_list **buf_long, char *ptr)
+static int		f_getline(char **line, t_list **buf_long, char *ptr, ssize_t id)
 {
-	ssize_t	id;
 	char	*tmp;
 
-	id = 0;
 	tmp = ft_strnew(ft_strlen((*buf_long)->content) + 1);
 	ft_strcpy(tmp, (*buf_long)->content);
 	while (tmp[id] != '\n' && tmp[id] != '\0')
@@ -78,6 +76,8 @@ static int		f_getline(char **line, t_list **buf_long, char *ptr)
 		free(tmp);
 		return (1);
 	}
+	free(tmp);
+	free(*buf_long);
 	return (0);
 }
 
@@ -106,5 +106,5 @@ int				get_next_line(const int fd, char **line)
 		if (ft_strchr(buf_long->content, '\n') != NULL)
 			break ;
 	}
-	return (f_getline(line, &buf_long, 0));
+	return (f_getline(line, &buf_long, 0, 0));
 }
