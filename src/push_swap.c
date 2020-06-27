@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 14:14:19 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/27 17:53:39 by Student          ###   ########.fr       */
+/*   Updated: 2020/06/27 00:21:18 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,15 @@ int				main(int argc, char **argv)
 			let_sort(vari);
 		else
 			ft_putstr("Error\n");
+		/*/////////////
+		int z = 0;
+		printf(" FIN: ");
+		while (z < vari->size_a)
+		{
+			printf("%d ", vari->stk_a[z]);
+			z++;
+		}
+		*///
 		ft_free(vari);
 	}
 	else

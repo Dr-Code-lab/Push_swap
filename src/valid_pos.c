@@ -6,7 +6,7 @@
 /*   By: ophuong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/07 16:00:18 by ophuong           #+#    #+#             */
-/*   Updated: 2020/05/23 20:28:23 by Student          ###   ########.fr       */
+/*   Updated: 2020/06/26 21:08:31 by Student          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 static void	set_steps_b(t_var *vari, int i)
 {
-	if ((vari->stk_a[0] > vari->stk_a[vari->size_a - 1]
+/*	if ((vari->stk_a[0] > vari->stk_a[vari->size_a - 1]
 			&& vari->stk_a[0] > vari->stk_b[i]
 			&& vari->stk_b[i] > vari->stk_a[vari->size_a - 1])
 		|| (vari->stk_a[0] > vari->stk_a[vari->size_a - 1]
 			&& vari->stk_a[0] < vari->stk_b[i]
 			&& vari->stk_b[i] < vari->stk_a[vari->size_a - 1]))
 	{
-		if (vari->sis_b[i].up < vari->sis_b[i].down)
+*/		if (vari->sis_b[i].up < vari->sis_b[i].down)
 			vari->sis_b[i].steps = vari->sis_b[i].up;
 		else
 			vari->sis_b[i].steps = vari->sis_b[i].down;
-	}
+//	}
 }
 
 static void	set_steps_ab(t_var *vari, int i, int o)
@@ -35,6 +35,9 @@ static void	set_steps_ab(t_var *vari, int i, int o)
 
 	a = 0;
 	b = 0;
+	////
+	//printf("\nAB-[O].n = %d\n", vari->sis_a[o].n);
+	//
 	if (vari->sis_a[o + 1].up < vari->sis_a[o + 1].down)
 		a = vari->sis_a[o + 1].up;
 	else
@@ -44,12 +47,15 @@ static void	set_steps_ab(t_var *vari, int i, int o)
 	else
 		b = vari->sis_b[i].down;
 	vari->sis_b[i].steps = a + b;
-	if ((a == vari->sis_a[o + 1].up && b == vari->sis_b[i].up) ||
-			(a == vari->sis_a[o + 1].down && b == vari->sis_b[i].down))
+	/////
+	//printf("!!!!!!! = %d\n", a + b);
+	//////
+	if (((a == vari->sis_a[o + 1].up && b == vari->sis_b[i].up) ||
+			(a == vari->sis_a[o + 1].down && b == vari->sis_b[i].down))/* && vari->sis_b[i].up != vari->sis_b[i].down*/)
 		vari->sis_b[i].way = 1;
 }
 
-static void	check_pos_minmax(t_var *vari, int *o)
+/*static void	check_pos_minmax(t_var *vari, int *o)
 {
 	int	i;
 
@@ -59,7 +65,7 @@ static void	check_pos_minmax(t_var *vari, int *o)
 		|| (vari->stk_a[i] == vari->max_n
 			&& vari->stk_a[i + 1] == vari->min_n))
 		*o = i + 1;
-}
+}*/
 
 void		valid_pos(t_var *vari)
 {
@@ -72,14 +78,16 @@ void		valid_pos(t_var *vari)
 		o = 0;
 		while (!(vari->stk_b[i] > vari->stk_a[o]
 					&& vari->stk_b[i] < vari->stk_a[o + 1])
-				&& !(vari->stk_b[i] < vari->stk_a[o]
-					&& vari->stk_b[i] > vari->stk_a[o + 1])
-				&& o < vari->size_a - 1)
-		{
+				/*&& !(vari->stk_b[i] < vari->stk_a[o]
+					&& vari->stk_b[i] > vari->stk_a[o + 1])*/
+				&& o < vari->size_a - 1/* && !(vari->stk_b[i] < vari->stk_a[0]
+						&& vari->stk_b[i] > vari->stk_a[vari->size_a - 1])*/)
 			o++;
-			check_pos_minmax(vari, &o);
-		}
-		if (o != vari->size_a - 1)
+		///// 
+		//printf("o++");
+			//check_pos_minmax(vari, &o);
+		if (o < vari->size_a - 1/* && !(vari->stk_b[i] > vari->stk_a[o]
+						&& vari->stk_b[i] < vari->stk_a[o + 1])*/)
 			set_steps_ab(vari, i, o);
 		else
 			set_steps_b(vari, i);
